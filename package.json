@@ -1,0 +1,103 @@
+{
+  "name": "01wire-fe",
+  "version": "1.0.2",
+  "private": true,
+  "homepage": "/",
+  "description": "01wire dashboard",
+  "dependencies": {
+    "@apollo/client": "^3.9.5",
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "5.15.12",
+    "@mui/material": "^5.13.1",
+    "@mui/styled-engine": "5.12.3",
+    "@mui/styles": "^5.15.11",
+    "@mui/x-date-pickers": "^7.13.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@types/react-slick": "^0.23.13",
+    "ajv": "^8.20.0",
+    "axios": "^1.6.7",
+    "chroma-js": "2.4.2",
+    "dayjs": "^1.11.10",
+    "draft-convert": "^2.1.13",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "dropzone": "5.9.3",
+    "formik": "2.2.9",
+    "graphql": "^16.8.1",
+    "html-to-draftjs": "^1.5.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "jwt-decode": "^4.0.0",
+    "lodash.debounce": "^4.0.8",
+    "mui-one-time-password-input": "^2.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-dropzone": "^14.2.3",
+    "react-hook-form": "^7.51.0",
+    "react-images-viewer": "1.7.1",
+    "react-router-dom": "6.11.2",
+    "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
+    "react-table": "7.8.0",
+    "react-toastify": "^10.0.4",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.11",
+    "stylis": "4.2.0",
+    "typescript": "^5.3.3",
+    "web-vitals": "3.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/chroma-js": "2.4.0",
+    "@types/draft-convert": "^2.1.4",
+    "@types/draft-js": "^0.11.10",
+    "@types/draftjs-to-html": "^0.8.4",
+    "@types/dropzone": "5.7.4",
+    "@types/html-to-draftjs": "^1.4.3",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/react-dom": "^18.2.19",
+    "@types/react-draft-wysiwyg": "^1.13.4",
+    "@types/react-table": "7.7.14",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-import-resolver-typescript": "3.5.5",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "2.8.8"
+  },
+  "resolutions": {
+    "@types/react": "18.2.21"
+  },
+  "overrides": {
+    "svgo": "3.0.2"
+  }
+}
