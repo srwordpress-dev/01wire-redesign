@@ -18,12 +18,11 @@ import Drawer from "@mui/material/Drawer";
 import { styled, Theme } from "@mui/material/styles";
 
 export default styled(Drawer)(({ theme, ownerState }: { theme?: Theme | any; ownerState: any }) => {
-  const { palette, boxShadows, transitions, breakpoints, functions } = theme;
+  const { palette, transitions, breakpoints, functions } = theme;
   const { transparentSidenav, whiteSidenav, miniSidenav, darkMode } = ownerState;
 
   const sidebarWidth = 250;
   const { transparent, gradients, white, background } = palette;
-  const { xxl } = boxShadows;
   const { pxToRem, linearGradient } = functions;
 
   let backgroundValue = darkMode
@@ -46,7 +45,7 @@ export default styled(Drawer)(({ theme, ownerState }: { theme?: Theme | any; own
     }),
 
     [breakpoints.up("xl")]: {
-      boxShadow: transparentSidenav ? "none" : xxl,
+      boxShadow: "none",
       marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
       width: sidebarWidth,
@@ -68,7 +67,7 @@ export default styled(Drawer)(({ theme, ownerState }: { theme?: Theme | any; own
     }),
 
     [breakpoints.up("xl")]: {
-      boxShadow: transparentSidenav ? "none" : xxl,
+      boxShadow: "none",
       marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
       width: pxToRem(96),
@@ -83,7 +82,7 @@ export default styled(Drawer)(({ theme, ownerState }: { theme?: Theme | any; own
 
   return {
     "& .MuiDrawer-paper": {
-      boxShadow: xxl,
+      boxShadow: "none",
       border: "none",
       borderRadius: 0,
       margin: "0px !important",

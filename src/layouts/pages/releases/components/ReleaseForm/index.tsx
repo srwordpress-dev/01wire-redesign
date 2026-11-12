@@ -284,7 +284,7 @@ function ReleaseForm({ idVal, onClose, refetch }: Props): JSX.Element {
             <MDBox mr={2}>
               <MDTypography
                 fontWeight="regular"
-                fontFamily="Roboto"
+                fontFamily="Inter"
                 fontSize="15px"
                 sx={{ color: "#7B809A" }}
               >

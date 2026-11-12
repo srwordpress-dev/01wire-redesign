@@ -21,6 +21,7 @@ import { Theme } from "@mui/material/styles";
 
 // Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
+import { palette, eyebrow } from "assets/theme/tokens";
 
 // Material Dashboard 2 PRO React TS contexts
 import { useMaterialUIController } from "context";
@@ -43,8 +44,9 @@ function DataTableHeadCell({ width, children, sorted, align, ...rest }: Props): 
       width={width}
       py={1.5}
       px={3}
-      sx={({ palette: { light }, borders: { borderWidth } }: Theme) => ({
-        borderBottom: `${borderWidth[1]} solid ${light.main}`,
+      sx={({ borders: { borderWidth } }: Theme) => ({
+        borderBottom: `${borderWidth[1]} solid ${palette.hairline}`,
+        backgroundColor: palette.surfaceSunken,
       })}
     >
       <MDBox
@@ -52,11 +54,8 @@ function DataTableHeadCell({ width, children, sorted, align, ...rest }: Props): 
         position="relative"
         textAlign={align}
         color={darkMode ? "white" : "secondary"}
-        opacity={0.7}
-        sx={({ typography: { size, fontWeightBold } }: Theme) => ({
-          fontSize: size.xxs,
-          fontWeight: fontWeightBold,
-          textTransform: "uppercase",
+        sx={() => ({
+          ...eyebrow,
           cursor: sorted && "pointer",
           userSelect: sorted && "none",
         })}

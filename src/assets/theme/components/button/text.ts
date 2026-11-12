@@ -20,16 +20,18 @@ import typography from "assets/theme/base/typography";
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
-const { text, info, secondary, transparent } = colors;
+import { palette } from "assets/theme/tokens";
+
+const { text, secondary, transparent } = colors;
 const { size } = typography;
 
 const buttonText = {
   base: {
     backgroundColor: transparent.main,
-    minHeight: pxToRem(40),
+    minHeight: pxToRem(36),
     color: text.main,
     boxShadow: "none",
-    padding: `${pxToRem(10)} ${pxToRem(24)}`,
+    padding: `${pxToRem(8)} ${pxToRem(12)}`,
 
     "&:hover": {
       backgroundColor: transparent.main,
@@ -75,14 +77,12 @@ const buttonText = {
   },
 
   primary: {
-    color: info.main,
-
+    color: palette.ink,
     "&:hover": {
-      color: info.main,
+      color: palette.brand,
     },
-
     "&:focus:not(:hover)": {
-      color: info.focus,
+      color: palette.ink,
       boxShadow: "none",
     },
   },

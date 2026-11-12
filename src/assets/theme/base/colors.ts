@@ -19,6 +19,8 @@ Coded by www.creative-tim.com
  * You can customized the colors for the entire Material Dashboard 2 PRO React TSUI Dashboard PRO Material using thie file.
  */
 
+import { palette as p } from "assets/theme/tokens";
+
 // types
 interface ColorsTypes {
   main: string;
@@ -90,6 +92,7 @@ interface Types {
   error: ColorsTypes | any;
   light: ColorsTypes | any;
   dark: ColorsTypes | any;
+  brand: ColorsTypes | any;
   grey:
   | {
     [key: string | number]: string;
@@ -154,245 +157,148 @@ interface Types {
 
 const colors: Types = {
   background: {
-    default: "#f0f2f5",
+    default: p.canvas,
   },
 
   text: {
-    main: "#7b809a",
-    focus: "#7b809a",
-    textSecondary: "#F9565C"
+    main: p.textMuted,
+    focus: p.ink,
+    textSecondary: p.brand,
   },
 
   transparent: {
     main: "transparent",
   },
 
+  // "white" in this template means "the surface colour": warm Paper, never pure #fff.
   white: {
-    main: "#ffffff",
-    focus: "#ffffff",
+    main: p.surface,
+    focus: p.surface,
   },
 
   black: {
-    light: "#000000",
-    main: "#000000",
-    focus: "#000000",
+    light: p.ink,
+    main: p.ink,
+    focus: p.ink,
   },
   pinkCard: {
-    main: "#E93B77",
+    main: p.brand,
   },
+  // Primary = Ink. Primary actions are dark, the red is reserved for links/focus/active.
   primary: {
-    main: "#EE5C61",
-    focus: "#EE5C61",
+    main: p.ink,
+    focus: p.inkHover,
   },
 
+  // Secondary = neutral (Cancel / Close / muted captions).
   secondary: {
-    main: "#F9565C",
-    focus: "#EE5C61",
+    main: p.textMuted,
+    focus: p.ink,
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: p.info,
+    focus: p.info,
   },
 
   success: {
-    main: "#4CAF50",
-    focus: "#67bb6a",
+    main: p.success,
+    focus: p.success,
   },
 
   warning: {
-    main: "#fb8c00",
-    focus: "#fc9d26",
+    main: p.warning,
+    focus: p.warning,
   },
 
   error: {
-    main: "#F44335",
-    focus: "#f65f53",
+    main: p.error,
+    focus: p.error,
   },
 
   light: {
-    main: "#f0f2f5",
-    focus: "#f0f2f5",
+    main: p.surfaceElevated,
+    focus: p.surfaceElevated,
   },
 
   dark: {
-    main: "#344767",
-    focus: "#2c3c58",
+    main: p.ink,
+    focus: p.inkHover,
+  },
+
+  // 01Wire brand red, available as palette.brand / color="brand"-style lookups.
+  brand: {
+    main: p.brand,
+    focus: p.brandHover,
+    soft: p.brandSoft,
   },
 
   grey: {
-    100: "#f8f9fa",
-    200: "#f0f2f5",
-    300: "#dee2e6",
-    400: "#ced4da",
-    500: "#adb5bd",
-    600: "#6c757d",
-    700: "#495057",
-    800: "#343a40",
-    900: "#212529",
+    100: p.surfaceSunken,
+    200: p.canvas,
+    300: p.hairline,
+    400: p.outline,
+    500: p.textDisabled,
+    600: p.textMuted,
+    700: "#4a4943",
+    800: "#36352e",
+    900: p.ink,
   },
 
+  // DESIGN.md: no gradients. main === state so every "gradient" renders flat.
   gradients: {
-    primary: {
-      main: "#EC407A",
-      state: "#D81B60",
-    },
-
-    secondary: {
-      main: "#747b8a",
-      state: "#495361",
-    },
-
-    info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
-    },
-
-    success: {
-      main: "#66BB6A",
-      state: "#43A047",
-    },
-
-    warning: {
-      main: "#FFA726",
-      state: "#FB8C00",
-    },
-
-    error: {
-      main: "#EF5350",
-      state: "#E53935",
-    },
-
-    light: {
-      main: "#EBEFF4",
-      state: "#CED4DA",
-    },
-
-    dark: {
-      main: "#42424a",
-      state: "#191919",
-    },
+    primary: { main: p.ink, state: p.ink },
+    secondary: { main: p.textMuted, state: p.textMuted },
+    info: { main: p.info, state: p.info },
+    success: { main: p.success, state: p.success },
+    warning: { main: p.warning, state: p.warning },
+    error: { main: p.error, state: p.error },
+    light: { main: p.surfaceElevated, state: p.surfaceElevated },
+    dark: { main: p.ink, state: p.ink },
   },
 
   socialMediaColors: {
-    facebook: {
-      main: "#3b5998",
-      dark: "#344e86",
-    },
-
-    twitter: {
-      main: "#55acee",
-      dark: "#3ea1ec",
-    },
-
-    instagram: {
-      main: "#125688",
-      dark: "#0e456d",
-    },
-
-    linkedin: {
-      main: "#0077b5",
-      dark: "#00669c",
-    },
-
-    pinterest: {
-      main: "#cc2127",
-      dark: "#b21d22",
-    },
-
-    youtube: {
-      main: "#e52d27",
-      dark: "#d41f1a",
-    },
-
-    vimeo: {
-      main: "#1ab7ea",
-      dark: "#13a3d2",
-    },
-
-    slack: {
-      main: "#3aaf85",
-      dark: "#329874",
-    },
-
-    dribbble: {
-      main: "#ea4c89",
-      dark: "#e73177",
-    },
-
-    github: {
-      main: "#24292e",
-      dark: "#171a1d",
-    },
-
-    reddit: {
-      main: "#ff4500",
-      dark: "#e03d00",
-    },
-
-    tumblr: {
-      main: "#35465c",
-      dark: "#2a3749",
-    },
+    facebook: { main: "#3b5998", dark: "#344e86" },
+    twitter: { main: "#55acee", dark: "#3ea1ec" },
+    instagram: { main: "#125688", dark: "#0e456d" },
+    linkedin: { main: "#0077b5", dark: "#00669c" },
+    pinterest: { main: "#cc2127", dark: "#b21d22" },
+    youtube: { main: "#e52d27", dark: "#d41f1a" },
+    vimeo: { main: "#1ab7ea", dark: "#13a3d2" },
+    slack: { main: "#3aaf85", dark: "#329874" },
+    dribbble: { main: "#ea4c89", dark: "#e73177" },
+    github: { main: "#24292e", dark: "#171a1d" },
+    reddit: { main: "#ff4500", dark: "#e03d00" },
+    tumblr: { main: "#35465c", dark: "#2a3749" },
   },
 
   badgeColors: {
-    primary: {
-      background: "#f8b3ca",
-      text: "#cc084b",
-    },
-
-    secondary: {
-      background: "#d7d9e1",
-      text: "#6c757d",
-    },
-
-    info: {
-      background: "#aecef7",
-      text: "#095bc6",
-    },
-
-    success: {
-      background: "#bce2be",
-      text: "#339537",
-    },
-
-    warning: {
-      background: "#ffd59f",
-      text: "#c87000",
-    },
-
-    error: {
-      background: "#fcd3d0",
-      text: "#f61200",
-    },
-
-    light: {
-      background: "#ffffff",
-      text: "#c7d3de",
-    },
-
-    dark: {
-      background: "#8097bf",
-      text: "#1e2e4a",
-    },
+    primary: { background: p.surfaceElevated, text: p.ink },
+    secondary: { background: p.surfaceElevated, text: p.textMuted },
+    info: { background: p.infoSoft, text: p.info },
+    success: { background: p.successSoft, text: p.success },
+    warning: { background: p.warningSoft, text: p.warning },
+    error: { background: p.errorSoft, text: p.error },
+    light: { background: p.surface, text: p.textMuted },
+    dark: { background: p.ink, text: p.surface },
   },
 
+  // DESIGN.md: shadows are warm ink, never tinted by the button colour.
   coloredShadows: {
-    primary: "#e91e62",
-    secondary: "#110e0e",
-    info: "#00bbd4",
-    success: "#4caf4f",
-    warning: "#ff9900",
-    error: "#f44336",
-    light: "#adb5bd",
-    dark: "#404040",
+    primary: p.ink,
+    secondary: p.ink,
+    info: p.ink,
+    success: p.ink,
+    warning: p.ink,
+    error: p.ink,
+    light: p.ink,
+    dark: p.ink,
   },
 
-  inputBorderColor: "#d2d6da",
+  inputBorderColor: p.outline,
 
   tabs: {
-    indicator: { boxShadow: "#ddd" },
+    indicator: { boxShadow: "transparent" },
   },
 };
 

@@ -22,7 +22,7 @@ import borders from "assets/theme/base/borders";
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
-const { lg } = boxShadows;
+const { xl } = boxShadows;
 const { size } = typography;
 const { text, white } = colors;
 const { borderRadius } = borders;
@@ -38,7 +38,7 @@ const menu: Types = {
   styleOverrides: {
     paper: {
       minWidth: pxToRem(160),
-      boxShadow: lg,
+      boxShadow: xl,
       padding: `${pxToRem(16)} ${pxToRem(8)}`,
       fontSize: size.sm,
       color: text.main,

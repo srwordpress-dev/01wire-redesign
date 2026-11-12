@@ -19,6 +19,7 @@ import borders from "assets/theme/base/borders";
 
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
+import { transition } from "assets/theme/tokens";
 
 const { fontWeightBold, size } = typography;
 const { borderRadius } = borders;
@@ -27,8 +28,9 @@ const root = {
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",
-  fontSize: size.xs,
+  fontSize: size.sm,
   fontWeight: fontWeightBold,
+  letterSpacing: "0.005em",
   borderRadius: borderRadius.lg,
   padding: `${pxToRem(6.302)} ${pxToRem(16.604)}`,
   lineHeight: 1.4,
@@ -36,9 +38,8 @@ const root = {
   // Normal case everywhere ("Create package", not "CREATE PACKAGE")
   textTransform: "none",
   userSelect: "none",
-  backgroundSize: "150% !important",
-  backgroundPositionX: "25% !important",
-  transition: "all 150ms ease-in",
+  boxShadow: "none !important",
+  transition: transition("background-color", "border-color", "color", "opacity", "transform"),
 
   "&:disabled": {
     pointerEvent: "none",

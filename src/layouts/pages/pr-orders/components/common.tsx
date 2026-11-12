@@ -9,9 +9,10 @@ import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 import { IAdminPrRow } from "graphql/queries/adminPrOrders";
+import { palette } from "assets/theme/tokens";
 
-export const INK = "#344767";
-export const MUTED = "#7b809a";
+export const INK = palette.ink;
+export const MUTED = palette.textMuted;
 
 // PR status, in words an admin understands at a glance
 export const PR_STATUS: Record<string, { label: string; color: string; bg: string }> = {

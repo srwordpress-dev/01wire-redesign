@@ -28,7 +28,7 @@ const columns = [
     width: "25%",
     align: "left",
     Cell: ({ value }: { value: "string" }) => (
-      <MDTypography fontWeight="medium" sx={{ fontSize: "16px", fontFamily: "Roboto" }}>
+      <MDTypography fontWeight="medium" sx={{ fontSize: "16px", fontFamily: "Inter" }}>
         {value}
       </MDTypography>
     ),
@@ -38,7 +38,7 @@ const columns = [
     accessor: "type",
     width: "25%",
     Cell: ({ value }: { value: any }) => (
-      <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+      <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
         {value}
       </MDTypography>
     ),
@@ -49,7 +49,7 @@ const columns = [
     width: "25%",
     Cell: ({ value }: { value: any }) => {
       return (
-        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
           {value}
         </MDTypography>
       );
@@ -62,7 +62,7 @@ const columns = [
     align: "right",
     Cell: ({ value }: { value: any }) => {
       return (
-        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
           {value?.length}
         </MDTypography>
       );
@@ -76,7 +76,7 @@ const columnsPub = [
     width: "25%",
     align: "left",
     Cell: ({ value }: { value: "string" }) => (
-      <MDTypography fontWeight="medium" sx={{ fontSize: "16px", fontFamily: "Roboto" }}>
+      <MDTypography fontWeight="medium" sx={{ fontSize: "16px", fontFamily: "Inter" }}>
         {value}
       </MDTypography>
     ),
@@ -87,7 +87,7 @@ const columnsPub = [
     width: "25%",
     Cell: ({ value }: { value: any }) => {
       return (
-        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
           {value?.traffic || "-"}
         </MDTypography>
       );
@@ -100,7 +100,7 @@ const columnsPub = [
     align: "center",
     Cell: ({ value = "-" }: { value: any }) => {
       return (
-        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+        <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
           {value}
         </MDTypography>
       );
@@ -112,7 +112,7 @@ const columnsPub = [
     width: "25%",
     align: "right",
     Cell: ({ value }: { value: any }) => (
-      <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+      <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
         {humanize(value) || "-"}
       </MDTypography>
     ),

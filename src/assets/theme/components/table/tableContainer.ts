@@ -15,11 +15,10 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 PRO React TS Base Styles
 import colors from "assets/theme/base/colors";
-import boxShadows from "assets/theme/base/boxShadows";
 import borders from "assets/theme/base/borders";
 
 const { white } = colors;
-const { md } = boxShadows;
+import { palette } from "assets/theme/tokens";
 const { borderRadius } = borders;
 
 // types
@@ -29,7 +28,8 @@ const tableContainer: Types = {
   styleOverrides: {
     root: {
       backgroundColor: white.main,
-      boxShadow: md,
+      boxShadow: "none",
+      border: `1px solid ${palette.hairline}`,
       borderRadius: borderRadius.xl,
     },
   },

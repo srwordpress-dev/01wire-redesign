@@ -21,7 +21,9 @@ import typography from "assets/theme/base/typography";
 // // Material Dashboard 2 PRO React TSUI Dashboard PRO helper functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
-const { inputBorderColor, info, grey, transparent } = colors;
+import { palette, elevation, transition } from "assets/theme/tokens";
+
+const { inputBorderColor, grey, transparent } = colors;
 const { borderRadius } = borders;
 const { size } = typography;
 
@@ -31,17 +33,20 @@ type Types = any;
 const inputOutlined: Types = {
   styleOverrides: {
     root: {
-      backgroundColor: transparent.main,
+      backgroundColor: palette.surface,
       fontSize: size.sm,
       borderRadius: borderRadius.md,
+      transition: transition("box-shadow"),
 
       "&:hover .MuiOutlinedInput-notchedOutline": {
         borderColor: inputBorderColor,
       },
 
       "&.Mui-focused": {
+        boxShadow: elevation.focusRing,
         "& .MuiOutlinedInput-notchedOutline": {
-          borderColor: info.main,
+          borderColor: palette.ink,
+          borderWidth: "1px",
         },
       },
     },

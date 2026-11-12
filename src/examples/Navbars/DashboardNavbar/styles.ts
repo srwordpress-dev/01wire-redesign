@@ -15,6 +15,7 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import { Theme } from "@mui/material/styles";
+import { palette as tokens } from "assets/theme/tokens";
 
 function navbar(theme: Theme | any, ownerState: any) {
   const { palette, boxShadows, functions, transitions, breakpoints, borders } = theme;
@@ -26,9 +27,9 @@ function navbar(theme: Theme | any, ownerState: any) {
   const { borderRadius } = borders;
 
   return {
-    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+    boxShadow: `0 1px 0 ${tokens.hairline}`,
     // backdropFilter: transparentNavbar || absolute ? "none" : `saturate(200%) blur(${pxToRem(30)})`,
-    backgroundColor: "#fbfbfc",
+    backgroundColor: tokens.surface,
 
     color: () => {
       let color;

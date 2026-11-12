@@ -16,12 +16,13 @@ import Link from "@mui/material/Link";
 import { getImageUrl } from "utils/apiConfig";
 import { PackageTierOptions } from "constants/index";
 import { bundleDetail, bundleName, creditsText } from "layouts/pages/releases/components/OrderSummary";
+import { palette } from "assets/theme/tokens";
 
 // Packages tab of the Marketplace: ready-made PR packages at one price.
 // "Add" puts a package in the same media cart as single publications.
 
-const MUTED = "#7B809A";
-const INK = "#344767";
+const MUTED = palette.textMuted;
+const INK = palette.ink;
 const GREEN = "#2E7D32";
 const PREVIEW = 8;
 const POPULAR = "#E65100";

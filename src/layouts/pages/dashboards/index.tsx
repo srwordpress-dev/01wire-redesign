@@ -22,14 +22,9 @@ import MDCircularLoader from "components/MDCircularLoader";
 import DisplayImage from "components/DisplayImage";
 // Material Dashboard 2 PRO React TS examples components
 // Images
-import RejectedIcon from "assets/images/Rejected.svg";
 import TiltArrowIcon from "assets/images/TiltArrow.svg";
-import Draft from "assets/images/draft.svg";
-import Submitted from "assets/images/submitted.svg";
-import Review from "assets/images/review.svg";
-import Publish from "assets/images/publish.svg";
-import Appro from "assets/images/appro.svg";
-import Schedule from "assets/images/schedule.svg";
+import EastIcon from "@mui/icons-material/East";
+import { palette, eyebrow, fonts, transition } from "assets/theme/tokens";
 
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MarketplacePreview from "./components/MarketplacePreview";
@@ -49,6 +44,19 @@ const quickActions = [
     Icon: PostAddIcon,
   },
 ];
+
+// Status ledger: label, API status, and the DESIGN.md status colour for its dot.
+const statusCards = [
+  { label: "Draft", status: "DRAFT", dot: palette.textDisabled },
+  { label: "Submitted", status: "SUBMITTED", dot: palette.info },
+  { label: "Review", status: "REVIEW", dot: palette.warning },
+  { label: "Awaiting Approval", status: "AWAITING_APPROVAL", dot: palette.warning },
+  { label: "Scheduled", status: "SCHEDULED", dot: palette.info },
+  { label: "Rejected", status: "REJECTED", dot: palette.error },
+  { label: "Published", status: "PUBLISHED", dot: palette.success },
+];
+
+const sectionLabel = { ...eyebrow, display: "block", mt: 4, mb: 1.5 };
 
 function Overview(): JSX.Element {
   const navigate = useNavigate();
@@ -70,17 +78,8 @@ function Overview(): JSX.Element {
   const { data, loading } = useQuery<IGetArticleStats>(GET_ARTICLE_STATS, {
     fetchPolicy: "network-only",
   });
-  const editorialReview = data?.getArticleStats?.find(
-    (one: any) => one?.status === "REVIEW"
-  )?.count;
-  const awaitingApproval = data?.getArticleStats?.find(
-    (one: any) => one?.status === "AWAITING_APPROVAL"
-  )?.count;
-  const scheduled = data?.getArticleStats?.find((one: any) => one?.status === "SCHEDULED")?.count;
-  const rejected = data?.getArticleStats?.find((one: any) => one?.status === "REJECTED")?.count;
-  const draft = data?.getArticleStats?.find((one: any) => one?.status === "DRAFT")?.count;
-  const published = data?.getArticleStats?.find((one: any) => one?.status === "PUBLISHED")?.count;
-  const submitted = data?.getArticleStats?.find((one: any) => one?.status === "SUBMITTED")?.count;
+  const countFor = (status: string) =>
+    data?.getArticleStats?.find((one: any) => one?.status === status)?.count || 0;
   const handleNavigation = (status: string) => {
     navigate("/releases", {
       state: {
@@ -92,37 +91,37 @@ function Overview(): JSX.Element {
     <>
       <DashboardNavbar />
       <MDBox px={2}>
-        <MDTypography mt={3} variant="h6" fontWeight="medium">
-          Quick Actions
+        <MDTypography component="h2" sx={sectionLabel}>
+          Quick actions
         </MDTypography>
-        <Grid mt={1} container spacing={2}>
+        <Grid container spacing={2}>
           {quickActions.map(({ title, subtitle, route, Icon }) => (
             <Grid item xs={12} md={6} key={route}>
-              <Card sx={{ borderRadius: "12px", border: "1px solid #ee5c61" }}>
+              <Card sx={{ transition: transition("border-color"), "&:hover": { borderColor: palette.outline } }}>
                 <CardActionArea
                   onClick={() => navigate(route, { state: { openForm: true } })}
-                  sx={{ p: 2, display: "flex", justifyContent: "flex-start", gap: 2 }}
+                  sx={{ p: 2, display: "flex", justifyContent: "flex-start", alignItems: "center", gap: 2 }}
                 >
                   <MDBox
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
-                    width="56px"
-                    height="56px"
-                    borderRadius="12px"
+                    width="44px"
+                    height="44px"
                     flexShrink={0}
-                    sx={{ backgroundColor: "#ee5c61" }}
+                    sx={{ backgroundColor: palette.surfaceElevated, borderRadius: "4px" }}
                   >
-                    <Icon sx={{ color: "#fff", fontSize: "28px !important" }} />
+                    <Icon sx={{ color: palette.ink, fontSize: "22px !important" }} />
                   </MDBox>
-                  <MDBox>
-                    <MDTypography fontSize="18px" fontWeight="bold">
+                  <MDBox flexGrow={1}>
+                    <MDTypography fontSize="16px" fontWeight="medium" sx={{ color: palette.ink }}>
                       {title}
                     </MDTypography>
-                    <MDTypography fontSize="14px" fontWeight="light" color="text">
+                    <MDTypography fontSize="14px" color="text">
                       {subtitle}
                     </MDTypography>
                   </MDBox>
+                  <EastIcon sx={{ color: palette.textMuted, fontSize: "18px !important" }} />
                 </CardActionArea>
               </Card>
             </Grid>
@@ -133,144 +132,55 @@ function Overview(): JSX.Element {
         <MDCircularLoader startLoader />
       ) : (
         <MDBox px={2}>
-          <MDTypography mt={3} variant="h6" fontWeight="medium">
-            Current Status
+          <MDTypography component="h2" sx={sectionLabel}>
+            Current status
           </MDTypography>
-          <Grid mt={1} container spacing={2}>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("DRAFT")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Draft} height="64px" width="64px" alt="Draft" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Draft
+          <Grid container spacing={2}>
+            {statusCards.map(({ label, status, dot }) => (
+              <Grid item xs={6} md={3} key={status}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    transition: transition("border-color"),
+                    "&:hover": { borderColor: palette.outline },
+                  }}
+                >
+                  <CardActionArea
+                    onClick={() => handleNavigation(status)}
+                    sx={{ p: 2, height: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "space-between" }}
+                  >
+                    <MDBox display="flex" alignItems="center" gap={1}>
+                      <MDBox
+                        component="span"
+                        sx={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: dot, flexShrink: 0 }}
+                      />
+                      <MDTypography component="span" sx={{ ...eyebrow, lineHeight: 1.2 }}>
+                        {label}
+                      </MDTypography>
+                    </MDBox>
+                    <MDTypography
+                      sx={{
+                        mt: 2,
+                        fontSize: "36px",
+                        fontWeight: 400,
+                        lineHeight: 1,
+                        letterSpacing: "-0.02em",
+                        color: palette.ink,
+                        fontVariantNumeric: "tabular-nums",
+                      }}
+                    >
+                      {countFor(status)}
                     </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {draft || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("SUBMITTED")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Submitted} height="64px" width="64px" alt="Submitted" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Submitted
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {submitted || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("REVIEW")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Review} height="64px" width="64px" alt="Review" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Review
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {editorialReview || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("AWAITING_APPROVAL")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Appro} height="64px" width="64px" alt="Appro" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Awaiting Approval
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {awaitingApproval || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("SCHEDULED")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Schedule} height="64px" width="64px" alt="Schedule" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Scheduled
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {scheduled || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("REJECTED")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={RejectedIcon} height="64px" width="64px" alt="ER" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Rejected
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {rejected || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Card
-                onClick={() => handleNavigation("PUBLISHED")}
-                sx={{ p: 2, borderRadius: "12px", height: "124px", cursor: "pointer" }}
-              >
-                <MDBox display="flex" alignItems="center" justifyContent="space-between">
-                  <img src={Publish} height="64px" width="64px" alt="Publish" />
-                  <MDBox>
-                    <MDTypography fontSize="16px" fontWeight="light" color="text">
-                      Published
-                    </MDTypography>
-                    <MDTypography fontSize="32px" fontWeight="bold" textAlign="right">
-                      {published || 0}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
           <MarketplacePreview />
-          <MDBox mt={3} display="flex" alignItems="center" justifyContent="space-between">
-            <MDTypography variant="h6" fontWeight="medium">
-              History
-            </MDTypography>
-          </MDBox>
-          <Grid mt={1} container spacing={2} sx={{ minHeight: "280px" }}>
+          <MDTypography component="h2" sx={sectionLabel}>
+            History
+          </MDTypography>
+          <Grid container spacing={2} sx={{ minHeight: "280px", mb: 3 }}>
             {hArticlesData?.filterArticlesPaginated?.data?.length > 0 ? (
               hArticlesData?.filterArticlesPaginated?.data?.map((one: any, i: any) => {
                 return (
@@ -286,7 +196,7 @@ function Overview(): JSX.Element {
                         height="212px"
                         width="100%"
                         alt="History PR Image"
-                        styles={{ borderRadius: "8.99px" }}
+                        styles={{ borderRadius: "2px", outline: "1px solid rgba(0, 0, 0, 0.1)", outlineOffset: "-1px" }}
                       />
                       <CardContent
                         sx={{
@@ -298,12 +208,12 @@ function Overview(): JSX.Element {
                         }}
                       >
                         <MDBox>
-                          <MDTypography fontSize="16px" fontWeight="regular" width="250px">
+                          <MDTypography fontSize="16px" fontWeight="regular" width="250px" sx={{ color: palette.ink }}>
                             {one?.title}
                           </MDTypography>
                           <MDTypography
                             variant="body2"
-                            sx={{ mt: 1, color: "rgba(123, 128, 154, 1)" }}
+                            sx={{ mt: 1, fontFamily: fonts.mono, fontSize: "12px", color: palette.textMuted }}
                           >
                             {dayjs(one?.createdAt).format("DD MMM YYYY, h:mm A")}
                           </MDTypography>
@@ -330,7 +240,7 @@ function Overview(): JSX.Element {
               })
             ) : (
               <MDBox m="auto">
-                <MDTypography variant="h6">No History Found</MDTypography>
+                <MDTypography variant="body2" color="text">No published releases yet</MDTypography>
               </MDBox>
             )}
           </Grid>

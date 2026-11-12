@@ -20,6 +20,7 @@ import { Theme } from "@mui/material/styles";
 
 // Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
+import { palette } from "assets/theme/tokens";
 
 // Declaring prop types for DataTableBodyCell
 interface Props {
@@ -41,15 +42,15 @@ function DataTableBodyCell({ noBorder, align, sticky, stickyShadow, hideBelow, c
       textAlign={align}
       py={1.5}
       px={2}
-      sx={({ palette: { light }, typography: { size }, borders: { borderWidth } }: Theme) => ({
+      sx={({ typography: { size }, borders: { borderWidth } }: Theme) => ({
         fontSize: size.sm,
-        borderBottom: noBorder ? "none" : `${borderWidth[1]} solid ${light.main}`,
+        borderBottom: noBorder ? "none" : `${borderWidth[1]} solid ${palette.hairline}`,
         ...(hideBelow && { display: { xs: "none", [hideBelow]: "table-cell" } }),
         ...(sticky && {
           position: "sticky",
           right: 0,
           zIndex: 1,
-          background: "#fff",
+          background: palette.surface,
           boxShadow: stickyShadow || "none",
         }),
       })}
@@ -57,7 +58,7 @@ function DataTableBodyCell({ noBorder, align, sticky, stickyShadow, hideBelow, c
       <MDBox
         display="inline-block"
         width="max-content"
-        color="text"
+        color="dark"
         sx={{ verticalAlign: "middle" }}
       >
         {children}

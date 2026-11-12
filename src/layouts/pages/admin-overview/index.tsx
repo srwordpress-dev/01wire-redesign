@@ -10,6 +10,7 @@ import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 import MDCircularLoader from "components/MDCircularLoader";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import { palette } from "assets/theme/tokens";
 
 dayjs.extend(relativeTime);
 
@@ -30,8 +31,8 @@ export const ADMIN_OVERVIEW = gql`
   }
 `;
 
-const INK = "#344767";
-const MUTED = "#7b809a";
+const INK = palette.ink;
+const MUTED = palette.textMuted;
 const inr = (paise: number) => `₹${(Number(paise || 0) / 100).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
 
 // One clickable number card

@@ -22,7 +22,7 @@ import boxShadows from "assets/theme/base/boxShadows";
 import borders from "assets/theme/base/borders";
 
 const { transparent } = colors;
-const { lg } = boxShadows;
+const { xl } = boxShadows;
 const { borderRadius } = borders;
 
 // types
@@ -32,7 +32,7 @@ const popover: Types = {
   styleOverrides: {
     paper: {
       backgroundColor: transparent.main,
-      boxShadow: lg,
+      boxShadow: xl,
       padding: pxToRem(8),
       borderRadius: borderRadius.md,
     },

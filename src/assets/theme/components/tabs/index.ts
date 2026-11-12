@@ -60,7 +60,7 @@ const tabs: Types = {
       borderRadius: borderRadius.lg,
       backgroundColor: white.main,
       boxShadow: tabsBoxShadow.indicator,
-      transition: "all 500ms ease",
+      transition: "transform 200ms cubic-bezier(0.2, 0, 0, 1), width 200ms cubic-bezier(0.2, 0, 0, 1), left 200ms cubic-bezier(0.2, 0, 0, 1)",
     },
   },
 };

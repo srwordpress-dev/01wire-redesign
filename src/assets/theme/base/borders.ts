@@ -64,10 +64,11 @@ const borders: Types = {
   borderRadius: {
     xs: pxToRem(1.6),
     sm: pxToRem(2),
-    md: pxToRem(6),
-    lg: pxToRem(8),
-    xl: pxToRem(12),
-    xxl: pxToRem(16),
+    // DESIGN.md: 4px for controls/cards, 8px for dialogs and the sidebar panel.
+    md: pxToRem(4),
+    lg: pxToRem(4),
+    xl: pxToRem(4),
+    xxl: pxToRem(8),
     section: pxToRem(160),
   },
 };

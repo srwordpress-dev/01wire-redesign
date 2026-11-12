@@ -34,9 +34,10 @@ import {
   UNDO_OFFLINE_IMPORT,
   UPDATE_OFFLINE_ORDER,
 } from "graphql/queries/offlineOrders";
+import { palette } from "assets/theme/tokens";
 
-const INK = "#344767";
-const MUTED = "#7b809a";
+const INK = palette.ink;
+const MUTED = palette.textMuted;
 const RED = "#b71c1c";
 const GREEN = "#1b5e20";
 const rupees = (n: number) => `₹${Number(n || 0).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`;

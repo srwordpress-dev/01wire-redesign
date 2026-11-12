@@ -58,7 +58,7 @@ const Profile = () => {
                 <MDTypography
                   fontSize="16px"
                   fontWeight="regular"
-                  sx={{ color: "#fff", fontFamily: "Roboto", marginRight: "5px" }}
+                  sx={{ color: "#fff", fontFamily: "Inter", marginRight: "5px" }}
                 >
                   Change Password
                 </MDTypography>

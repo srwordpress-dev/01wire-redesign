@@ -15,13 +15,13 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import { Theme } from "@mui/material/styles";
+import { transition as tokenTransition } from "assets/theme/tokens";
 
 function collapseItem(theme: Theme, ownerState: any) {
-  const { palette, transitions, breakpoints, boxShadows, borders, functions } = theme;
+  const { palette, borders, functions } = theme;
   const { active, transparentSidenav, whiteSidenav, darkMode } = ownerState;
 
-  const { white, transparent, dark, grey, primary } = palette;
-  const { md } = boxShadows;
+  const { white, transparent, dark, grey, brand } = palette as any;
   const { borderRadius } = borders;
   const { pxToRem, rgba } = functions;
 
@@ -36,35 +36,33 @@ function collapseItem(theme: Theme, ownerState: any) {
       } else if (whiteSidenav) {
         backgroundValue = active ? grey[200] : transparent.main;
       } else {
-        backgroundValue = active ? primary.main : transparent.main;
+        // Ink sidebar: active row is a faint paper tint + a 2px 01Wire-red marker.
+        backgroundValue = active ? rgba(white.main, 0.08) : transparent.main;
       }
 
       return backgroundValue;
     },
     color: (transparentSidenav && !darkMode) || whiteSidenav ? dark.main : white.main,
+    opacity: active ? 1 : 0.72,
     display: "flex",
     alignItems: "center",
     width: "100%",
-    padding: `${pxToRem(8)} ${pxToRem(16)}`,
+    padding: `${pxToRem(8)} ${pxToRem(12)}`,
     margin: `${pxToRem(1.5)} ${pxToRem(16)}`,
     borderRadius: borderRadius.md,
     cursor: "pointer",
     userSelect: "none",
     whiteSpace: "nowrap",
-    boxShadow: active && !whiteSidenav && !darkMode && !transparentSidenav ? md : "none",
-    [breakpoints.up("xl")]: {
-      transition: transitions.create(["box-shadow", "background-color"], {
-        easing: transitions.easing.easeInOut,
-        duration: transitions.duration.shorter,
-      }),
-    },
+    boxShadow:
+      active && !whiteSidenav && !transparentSidenav ? `inset 2px 0 0 ${brand.main}` : "none",
+    transition: tokenTransition("background-color", "opacity", "box-shadow"),
 
-    "&:hover, &:focus": {
+    "&:hover, &:focus-visible": {
+      opacity: 1,
       backgroundColor:
-      active ?transparent: 
         transparentSidenav && !darkMode
           ? grey[300]
-          : rgba(whiteSidenav ? grey[400] : white.main, 0.2),
+          : rgba(whiteSidenav ? grey[400] : white.main, active ? 0.08 : 0.05),
     },
   };
 }
@@ -103,7 +101,7 @@ function collapseText(theme: any, ownerState: any) {
   const { typography, transitions, breakpoints, functions } = theme;
   const { miniSidenav, transparentSidenav, active } = ownerState;
 
-  const { size, fontWeightRegular, fontWeightLight } = typography;
+  const { size, fontWeightLight } = typography;
   const { pxToRem } = functions;
 
   return {
@@ -120,7 +118,7 @@ function collapseText(theme: any, ownerState: any) {
     },
 
     "& span": {
-      fontWeight: active ? fontWeightRegular : fontWeightLight,
+      fontWeight: active ? 500 : fontWeightLight,
       fontSize: size.sm,
       lineHeight: 0,
     },

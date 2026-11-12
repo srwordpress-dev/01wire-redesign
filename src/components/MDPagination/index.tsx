@@ -45,7 +45,7 @@ interface Props {
 }
 
 const MDPagination = forwardRef<HTMLButtonElement, Props>(
-  ({ item = false, variant = "gradient", color = "info", size = "medium", active = false, children, ...rest }, ref) => {
+  ({ item = false, variant = "gradient", color = "dark", size = "medium", active = false, children, ...rest }, ref) => {
     const context: any = useContext(Context);
     const paginationSize = context ? context.size : undefined;
 

@@ -22,7 +22,7 @@ import borders from "assets/theme/base/borders";
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
-const { lg } = boxShadows;
+const { xl } = boxShadows;
 const { size } = typography;
 const { text, white, transparent, light, dark, gradients } = colors;
 const { borderRadius } = borders;
@@ -33,7 +33,7 @@ type Types = any;
 const autocomplete: Types = {
   styleOverrides: {
     popper: {
-      boxShadow: lg,
+      boxShadow: xl,
       padding: pxToRem(8),
       fontSize: size.sm,
       color: text.main,
@@ -52,7 +52,7 @@ const autocomplete: Types = {
       borderRadius: borderRadius.md,
       fontSize: size.sm,
       color: text.main,
-      transition: "background-color 300ms ease, color 300ms ease",
+      transition: "background-color 150ms cubic-bezier(0.2, 0, 0, 1), color 150ms cubic-bezier(0.2, 0, 0, 1)",
 
       "&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus": {
         backgroundColor: light.main,

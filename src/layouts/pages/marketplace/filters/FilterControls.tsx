@@ -14,14 +14,15 @@ import {
   SECTIONS,
   TATS,
 } from "./model";
+import { palette } from "assets/theme/tokens";
 
 // Shared filter bodies: the same control renders inside a quick-filter popover and inside
 // the All-filters drawer, so both always show and change the same URL-backed state.
 
-export const BRAND = "#EE5C61";
-export const BRAND_SOFT = "#FDECED";
-export const MUTED = "#7B809A";
-export const INK = "#344767";
+export const BRAND = palette.brand;
+export const BRAND_SOFT = palette.brandSoft;
+export const MUTED = palette.textMuted;
+export const INK = palette.ink;
 export const LINE = "rgba(0,0,0,0.12)";
 
 export type Update = (patch: Partial<Filters>, opts?: { replace?: boolean }) => void;

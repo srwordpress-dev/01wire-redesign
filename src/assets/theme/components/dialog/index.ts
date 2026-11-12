@@ -26,7 +26,7 @@ type Types = any;
 const dialog: Types = {
   styleOverrides: {
     paper: {
-      borderRadius: borderRadius.lg,
+      borderRadius: borderRadius.xxl,
       boxShadow: xxl,
     },
 

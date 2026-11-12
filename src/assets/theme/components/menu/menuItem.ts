@@ -37,7 +37,7 @@ const menuItem: Types = {
       borderRadius: borderRadius.md,
       fontSize: size.sm,
       color: text.main,
-      transition: "background-color 300ms ease, color 300ms ease",
+      transition: "background-color 150ms cubic-bezier(0.2, 0, 0, 1), color 150ms cubic-bezier(0.2, 0, 0, 1)",
 
       "&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus": {
         backgroundColor: light.main,

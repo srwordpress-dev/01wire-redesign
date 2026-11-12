@@ -20,19 +20,20 @@ import typography from "assets/theme/base/typography";
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
-const { transparent, light, info, secondary } = colors;
+import { palette } from "assets/theme/tokens";
+
+const { transparent } = colors;
 const { size } = typography;
 
 const outlined = {
   base: {
-    minHeight: pxToRem(40),
-    color: light.main,
-    borderColor: light.main,
-    padding: `${pxToRem(10)} ${pxToRem(24)}`,
-
+    minHeight: pxToRem(36),
+    color: palette.ink,
+    borderColor: palette.outline,
+    padding: `${pxToRem(8)} ${pxToRem(16)}`,
     "&:hover": {
-      opacity: 0.75,
-      backgroundColor: transparent.main,
+      backgroundColor: palette.surfaceSunken,
+      borderColor: palette.outline,
     },
 
     "& .material-icon, .material-icons-round, svg": {
@@ -62,19 +63,18 @@ const outlined = {
 
   primary: {
     backgroundColor: transparent.main,
-    borderColor: info.main,
-
+    color: palette.ink,
+    borderColor: palette.ink,
     "&:hover": {
-      backgroundColor: transparent.main,
+      backgroundColor: palette.surfaceSunken,
     },
   },
-
   secondary: {
     backgroundColor: transparent.main,
-    borderColor: secondary.main,
-
+    color: palette.ink,
+    borderColor: palette.outline,
     "&:hover": {
-      backgroundColor: transparent.main,
+      backgroundColor: palette.surfaceSunken,
     },
   },
 };

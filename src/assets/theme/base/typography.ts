@@ -24,6 +24,7 @@ import colors from "assets/theme/base/colors";
 
 // Material Dashboard 2 PRO React TS Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
+import { fonts } from "assets/theme/tokens";
 
 const { dark } = colors;
 
@@ -44,6 +45,7 @@ interface Types {
   fontWeightMedium: number;
   fontWeightBold: number;
   h1: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -51,6 +53,7 @@ interface Types {
     lineHeight: number;
   };
   h2: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -58,6 +61,7 @@ interface Types {
     lineHeight: number;
   };
   h3: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -65,6 +69,7 @@ interface Types {
     lineHeight: number;
   };
   h4: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -72,6 +77,7 @@ interface Types {
     lineHeight: number;
   };
   h5: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -79,6 +85,7 @@ interface Types {
     lineHeight: number;
   };
   h6: {
+    letterSpacing?: string;
     fontFamily: string;
     fontSize: string;
     fontWeight: number;
@@ -149,12 +156,13 @@ interface Types {
 }
 
 const baseProperties = {
-  fontFamily: ' "Inter", sans-serif',
-  fontWeightLighter: 100,
-  fontWeightLight: 300,
+  fontFamily: fonts.sans,
+  // DESIGN.md: two weights only. "light"/"lighter" stay readable at 400; "bold" is 500.
+  fontWeightLighter: 400,
+  fontWeightLight: 400,
   fontWeightRegular: 400,
-  fontWeightMedium: 600,
-  fontWeightBold: 700,
+  fontWeightMedium: 500,
+  fontWeightBold: 500,
   fontSizeXXS: pxToRem(10.4),
   fontSizeXS: pxToRem(12),
   fontSizeSM: pxToRem(14),
@@ -168,7 +176,7 @@ const baseProperties = {
 const baseHeadingProperties = {
   fontFamily: baseProperties.fontFamily,
   color: dark.main,
-  fontWeight: baseProperties.fontWeightBold,
+  fontWeight: baseProperties.fontWeightMedium,
 };
 
 const baseDisplayProperties = {
@@ -187,39 +195,51 @@ const typography: Types = {
   fontWeightBold: baseProperties.fontWeightBold,
 
   h1: {
-    fontSize: pxToRem(48),
-    lineHeight: 1.25,
     ...baseHeadingProperties,
+    fontSize: pxToRem(48),
+    lineHeight: 1.1,
+    fontWeight: 400,
+    letterSpacing: "-0.03em",
   },
 
   h2: {
-    fontSize: pxToRem(36),
-    lineHeight: 1.3,
     ...baseHeadingProperties,
+    fontSize: pxToRem(36),
+    lineHeight: 1.15,
+    fontWeight: 400,
+    letterSpacing: "-0.02em",
   },
 
   h3: {
-    fontSize: pxToRem(30),
-    lineHeight: 1.375,
     ...baseHeadingProperties,
+    fontSize: pxToRem(30),
+    lineHeight: 1.2,
+    fontWeight: 400,
+    letterSpacing: "-0.02em",
   },
 
   h4: {
-    fontSize: pxToRem(24),
-    lineHeight: 1.375,
     ...baseHeadingProperties,
+    fontSize: pxToRem(24),
+    lineHeight: 1.25,
+    fontWeight: 400,
+    letterSpacing: "-0.012em",
   },
 
   h5: {
-    fontSize: pxToRem(20),
-    lineHeight: 1.375,
     ...baseHeadingProperties,
+    fontSize: pxToRem(20),
+    lineHeight: 1.3,
+    fontWeight: 500,
+    letterSpacing: "-0.005em",
   },
 
   h6: {
-    fontSize: pxToRem(16),
-    lineHeight: 1.625,
     ...baseHeadingProperties,
+    fontSize: pxToRem(16),
+    lineHeight: 1.4,
+    fontWeight: 500,
+    letterSpacing: "0",
   },
 
   subtitle1: {
@@ -253,9 +273,9 @@ const typography: Types = {
   button: {
     fontFamily: baseProperties.fontFamily,
     fontSize: baseProperties.fontSizeSM,
-    fontWeight: baseProperties.fontWeightLight,
+    fontWeight: baseProperties.fontWeightMedium,
     lineHeight: 1.5,
-    textTransform: "uppercase",
+    textTransform: "none",
   },
 
   caption: {
@@ -266,7 +286,7 @@ const typography: Types = {
   },
 
   overline: {
-    fontFamily: baseProperties.fontFamily,
+    fontFamily: fonts.mono,
   },
 
   d1: {

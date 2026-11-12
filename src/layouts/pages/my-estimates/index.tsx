@@ -24,6 +24,7 @@ import { toSites, toCartItem } from "layouts/pages/marketplace/listings";
 import { mediaOf, toCartBundle } from "layouts/pages/marketplace/BundlesTab";
 import { saveCart } from "utils/mediaCart";
 import { getImageUrl } from "utils/apiConfig";
+import { palette } from "assets/theme/tokens";
 
 // Only what this page shows; prices and availability come from today's Marketplace
 const MY_ESTIMATES = gql`
@@ -43,8 +44,8 @@ const MY_ESTIMATES = gql`
   }
 `;
 
-const INK = "#344767";
-const MUTED = "#7b809a";
+const INK = palette.ink;
+const MUTED = palette.textMuted;
 const SORTS = [
   { value: "newest", label: "Newest first" },
   { value: "oldest", label: "Oldest first" },

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getImageUrl } from "utils/apiConfig";
+import { palette } from "assets/theme/tokens";
 
 // An image that never shows the browser's broken-image icon: if the file is missing it
 // shows the initials of `fallbackText` (or a plain tinted tile) in the same size and shape.
@@ -42,9 +43,9 @@ const DisplayImage = ({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#FDEEEF",
-          color: "#F9565C",
-          fontWeight: 700,
+          background: palette.surfaceElevated,
+          color: palette.textMuted,
+          fontWeight: 500,
           fontSize: `calc(${height} * 0.32)`,
           ...styles,
         }}

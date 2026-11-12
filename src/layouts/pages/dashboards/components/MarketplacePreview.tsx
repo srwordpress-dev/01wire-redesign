@@ -16,6 +16,7 @@ import { toSites } from "layouts/pages/marketplace/listings";
 import { getImageUrl } from "utils/apiConfig";
 import { GET_BUNDLES, IGetBundles, IGetBundlesVars } from "graphql/queries/filterBundlesPaginated";
 import { mediaOf, TIER_COLOURS } from "layouts/pages/marketplace/BundlesTab";
+import { palette, eyebrow, transition } from "assets/theme/tokens";
 
 const PREVIEW_SIZE = 6; // publications shown (the Packages box next to it is taller now)
 
@@ -56,7 +57,7 @@ const Thumb = ({ src, title }: { src?: string; title: string }) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      sx={{ ...box, backgroundColor: "#ee5c61", color: "#fff", fontWeight: 700, fontSize: "14px" }}
+      sx={{ ...box, backgroundColor: palette.surfaceElevated, color: palette.ink, fontWeight: 500, fontSize: "14px" }}
     >
       {letters || "?"}
     </MDBox>
@@ -81,7 +82,7 @@ const CategoryPreview = ({
   loading: boolean;
   onOpen: () => void;
 }) => (
-  <Card sx={{ borderRadius: "12px", height: "100%" }}>
+  <Card sx={{ height: "100%" }}>
     <MDBox p={2} display="flex" alignItems="center" gap={2}>
       <MDBox
         display="flex"
@@ -91,12 +92,12 @@ const CategoryPreview = ({
         height="48px"
         borderRadius="12px"
         flexShrink={0}
-        sx={{ backgroundColor: "#ee5c61" }}
+        sx={{ backgroundColor: palette.surfaceElevated, borderRadius: "4px" }}
       >
-        <Icon sx={{ color: "#fff", fontSize: "24px !important" }} />
+        <Icon sx={{ color: palette.ink, fontSize: "22px !important" }} />
       </MDBox>
       <MDBox flexGrow={1} minWidth={0}>
-        <MDTypography fontSize="18px" fontWeight="bold">
+        <MDTypography fontSize="16px" fontWeight="medium" sx={{ color: palette.ink }}>
           {title}
           {total !== undefined && (
             <MDTypography component="span" fontSize="14px" fontWeight="regular" color="text">
@@ -140,7 +141,7 @@ const CategoryPreview = ({
               </MDTypography>
             </MDBox>
             {item.price !== undefined && item.price !== null && (
-              <MDTypography fontSize="14px" fontWeight="bold" color="primary" flexShrink={0}>
+              <MDTypography fontSize="14px" fontWeight="medium" flexShrink={0} sx={{ color: palette.ink, fontVariantNumeric: "tabular-nums" }}>
                 {item.priceFrom ? "from " : ""}
                 {item.price} {item.price === 1 ? "credit" : "credits"}
               </MDTypography>
@@ -176,7 +177,7 @@ const CoverLogo = ({ m, size }: { m: { name: string; image?: string }; size: num
       alt={`${m.name} logo`}
       title={m.name}
       onError={() => setFailed(true)}
-      sx={{ width: size, height: size, objectFit: "contain", borderRadius: "10px", background: "#fff", p: 0.75, boxShadow: "0 1px 3px rgba(0,0,0,0.12)", flexShrink: 0 }}
+      sx={{ width: size, height: size, objectFit: "contain", borderRadius: "4px", background: palette.surface, p: 0.75, boxShadow: `0 0 0 1px ${palette.hairline}`, flexShrink: 0 }}
     />
   );
 };
@@ -191,37 +192,37 @@ const PackageCard = ({ b, onOpen }: { b: any; onOpen: () => void }) => {
     <ButtonBase
       onClick={onOpen}
       data-testid="package-card"
-      sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", textAlign: "left", borderRadius: "12px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", background: "#fff", transition: "box-shadow 150ms", "&:hover": { boxShadow: "0 4px 14px rgba(0,0,0,0.10)" } }}
+      sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", textAlign: "left", borderRadius: "4px", overflow: "hidden", border: `1px solid ${palette.hairline}`, background: palette.surface, transition: transition("border-color"), "&:hover": { borderColor: palette.outline } }}
     >
       <MDBox
         data-testid="package-cover"
-        sx={{ position: "relative", height: 112, display: "flex", alignItems: "center", justifyContent: "center", gap: 1, flexWrap: "nowrap", px: 1.5, pt: 2.5, background: "linear-gradient(135deg, #fff1f1 0%, #fde3e4 100%)" }}
+        sx={{ position: "relative", height: 112, display: "flex", alignItems: "center", justifyContent: "center", gap: 1, flexWrap: "nowrap", px: 1.5, pt: 2.5, background: palette.surfaceSunken, borderBottom: `1px solid ${palette.hairline}` }}
       >
         {logos.length ? (
           logos.map((m) => <CoverLogo key={m.name} m={m} size={logos.length > 3 ? 42 : 50} />)
         ) : (
-          <MDBox sx={{ width: 56, height: 56, borderRadius: "12px", background: "#ee5c61", color: "#fff", fontWeight: 700, fontSize: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <MDBox sx={{ width: 56, height: 56, borderRadius: "4px", background: palette.surfaceElevated, color: palette.ink, fontWeight: 500, fontSize: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
             {initials || "?"}
           </MDBox>
         )}
         {b?.featured && (
-          <MDBox sx={{ position: "absolute", top: 8, left: 8, background: "#e8590c", color: "#fff", fontSize: "11px", fontWeight: 700, px: 1, py: 0.25, borderRadius: "999px" }}>
+          <MDBox sx={{ position: "absolute", top: 8, left: 8, background: palette.brandSoft, color: palette.brand, fontSize: "11px", fontWeight: 500, px: 1, py: 0.25, borderRadius: "4px" }}>
             ★ Popular
           </MDBox>
         )}
         {media.length > logos.length && logos.length > 0 && (
-          <MDBox sx={{ position: "absolute", bottom: 6, right: 8, fontSize: "11px", color: "#7b809a", fontWeight: 600 }}>
+          <MDBox sx={{ position: "absolute", bottom: 6, right: 8, ...eyebrow, fontSize: "10px" }}>
             +{media.length - logos.length} more
           </MDBox>
         )}
       </MDBox>
       <MDBox p={1.5} display="flex" flexDirection="column" gap={0.5} flexGrow={1}>
-        <MDTypography fontSize="15px" fontWeight="bold" sx={{ lineHeight: 1.25 }}>
+        <MDTypography fontSize="15px" fontWeight="medium" sx={{ lineHeight: 1.25, color: palette.ink }}>
           {name}
         </MDTypography>
         <MDBox display="flex" alignItems="center" gap={0.75} flexWrap="wrap">
           {b?.tier && (
-            <MDBox component="span" sx={{ background: TIER_COLOURS[b.tier] || "#607D8B", color: "#fff", fontSize: "11px", fontWeight: 600, px: 0.75, py: 0.125, borderRadius: "6px" }}>
+            <MDBox component="span" sx={{ background: TIER_COLOURS[b.tier] || "#607D8B", color: "#fff", fontSize: "11px", fontWeight: 500, px: 0.75, py: 0.125, borderRadius: "4px" }}>
               {b.tier}
             </MDBox>
           )}
@@ -230,7 +231,7 @@ const PackageCard = ({ b, onOpen }: { b: any; onOpen: () => void }) => {
           </MDTypography>
         </MDBox>
         <MDBox mt="auto" pt={0.5} display="flex" alignItems="center" justifyContent="space-between">
-          <MDTypography fontSize="15px" fontWeight="bold" color="primary">
+          <MDTypography fontSize="15px" fontWeight="medium" sx={{ color: palette.ink, fontVariantNumeric: "tabular-nums" }}>
             {b?.price} {b?.price === 1 ? "credit" : "credits"}
           </MDTypography>
           <MDTypography fontSize="13px" fontWeight="medium" color="primary">
@@ -244,13 +245,13 @@ const PackageCard = ({ b, onOpen }: { b: any; onOpen: () => void }) => {
 
 // Dashboard "Packages" box: the top Popular packages as picture cards
 const PackagesPreview = ({ items, total, loading, onOpen, onOpenAll }: { items: any[]; total?: number; loading: boolean; onOpen: (id: string) => void; onOpenAll: () => void }) => (
-  <Card sx={{ borderRadius: "12px", height: "100%" }}>
+  <Card sx={{ height: "100%" }}>
     <MDBox p={2} display="flex" alignItems="center" gap={2}>
-      <MDBox display="flex" alignItems="center" justifyContent="center" width="48px" height="48px" borderRadius="12px" flexShrink={0} sx={{ backgroundColor: "#ee5c61" }}>
-        <Inventory2OutlinedIcon sx={{ color: "#fff", fontSize: "24px !important" }} />
+      <MDBox display="flex" alignItems="center" justifyContent="center" width="48px" height="48px" flexShrink={0} sx={{ backgroundColor: palette.surfaceElevated, borderRadius: "4px" }}>
+        <Inventory2OutlinedIcon sx={{ color: palette.ink, fontSize: "22px !important" }} />
       </MDBox>
       <MDBox flexGrow={1} minWidth={0}>
-        <MDTypography fontSize="18px" fontWeight="bold">
+        <MDTypography fontSize="16px" fontWeight="medium" sx={{ color: palette.ink }}>
           Packages
           {total !== undefined && (
             <MDTypography component="span" fontSize="14px" fontWeight="regular" color="text">
@@ -327,11 +328,11 @@ function MarketplacePreview(): JSX.Element {
   const openBundles = () => navigate("/marketplace?tab=bundles");
 
   return (
-    <MDBox mt={3}>
-      <MDTypography variant="h6" fontWeight="medium">
+    <MDBox>
+      <MDTypography component="h2" sx={{ ...eyebrow, display: "block", mt: 4, mb: 1.5 }}>
         Marketplace
       </MDTypography>
-      <Grid mt={0} container spacing={2}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <CategoryPreview
             title="Publications"

@@ -30,6 +30,7 @@ import { RESET_PASSWORD, IResetPasswordVars } from "graphql/mutations/resetPassw
 import { LOGIN_VIA_OTP, ILoginOtpVars } from "graphql/mutations/loginViaOtp";
 import { validateEmail } from "../utils";
 import { brandName } from "constants/index";
+import { palette, eyebrow } from "assets/theme/tokens";
 
 // Turns any sign-in error into a clear message for the person signing in
 const SERVER_MESSAGES: [RegExp, string][] = [
@@ -324,10 +325,15 @@ function SignIn(): JSX.Element {
               justifyContent="center"
               width="100%"
               height="calc(100vh - 2rem)"
+              flexDirection="column"
+              gap={3}
               bgColor="white"
-              sx={{ borderRadius: "16px" }}
+              sx={{ borderRadius: "8px", border: `1px solid ${palette.hairline}` }}
             >
               <img src={OneWireLogo} alt="01 Wire" data-testid="signin-logo" style={{ width: "45%", maxWidth: "420px", height: "auto" }} />
+              <MDTypography component="p" sx={eyebrow}>
+                Your press release, on every wire
+              </MDTypography>
             </MDBox>
           </MDBox>
         </Grid>
@@ -336,7 +342,7 @@ function SignIn(): JSX.Element {
             <MDBox py={3} px={3} textAlign="center">
               <>
                 <MDBox mb={1} textAlign="center">
-                  <MDTypography variant="h4" fontWeight="bold">
+                  <MDTypography variant="h4">
                     {showOtp
                       ? "Confirmation Awaits!"
                       : forgotPsw
@@ -361,10 +367,9 @@ function SignIn(): JSX.Element {
                 {!(showOtp || forgotPsw) && (
                   <>
                     <MDTypography
-                      sx={{ mb: "0.5rem" }}
-                      fontSize="16px"
+                      fontSize="14px"
                       fontWeight="medium"
-                      color="textSecondary"
+                      sx={{ mb: "0.5rem", color: palette.ink }}
                     >
                       Work Email
                     </MDTypography>
@@ -394,10 +399,9 @@ function SignIn(): JSX.Element {
                     {isSignup && (
                       <MDBox mb={2}>
                         <MDTypography
-                          sx={{ mb: "0.5rem" }}
-                          fontSize="16px"
+                          fontSize="14px"
                           fontWeight="medium"
-                          color="textSecondary"
+                          sx={{ mb: "0.5rem", color: palette.ink }}
                         >
                           Name
                         </MDTypography>
@@ -421,10 +425,9 @@ function SignIn(): JSX.Element {
                     {(isSignup || showPassword) && (
                       <MDBox mb={2}>
                         <MDTypography
-                          sx={{ mb: "0.5rem" }}
-                          fontSize="16px"
+                          fontSize="14px"
                           fontWeight="medium"
-                          color="textSecondary"
+                          sx={{ mb: "0.5rem", color: palette.ink }}
                         >
                           Password
                         </MDTypography>
@@ -451,10 +454,9 @@ function SignIn(): JSX.Element {
                 {!showOtp && forgotPsw && (
                   <MDBox mb={2}>
                     <MDTypography
-                      sx={{ mb: "0.5rem" }}
-                      fontSize="16px"
+                      fontSize="14px"
                       fontWeight="medium"
-                      color="textSecondary"
+                      sx={{ mb: "0.5rem", color: palette.ink }}
                     >
                       New password
                     </MDTypography>
@@ -479,10 +481,9 @@ function SignIn(): JSX.Element {
                 {showOtp && (
                   <MDBox mb={2}>
                     <MDTypography
-                      sx={{ mb: "0.5rem" }}
-                      fontSize="16px"
+                      fontSize="14px"
                       fontWeight="medium"
-                      color="textSecondary"
+                      sx={{ mb: "0.5rem", color: palette.ink }}
                     >
                       Enter OTP
                     </MDTypography>
@@ -497,9 +498,9 @@ function SignIn(): JSX.Element {
                           "& .MuiOtpInput-TextField input": {
                             width: "36px",
                             height: "36px",
-                            bgcolor: "#fff",
+                            bgcolor: palette.surface,
                             padding: "4px",
-                            borderRadius: "8px",
+                            borderRadius: "4px",
                           },
                         }}
                       />
@@ -508,7 +509,7 @@ function SignIn(): JSX.Element {
                 )}
 
                 <MDBox mt={4}>
-                  <MDButton onClick={handleSubmit} color="secondary" size="large" fullWidth>
+                  <MDButton onClick={handleSubmit} color="primary" size="large" fullWidth>
                     {showOtp || showPassword || forgotPsw ? "Submit" : isSignup ? "Sign up" : "Next"}
                   </MDButton>
                 </MDBox>
@@ -524,10 +525,8 @@ function SignIn(): JSX.Element {
                           if (showPassword || showOtp) handleForgotPassword(showOtp ? resetMode : true);
                         }}
                         variant="button"
-                        color="primary"
                         fontWeight="medium"
-                        textGradient
-                        sx={{ ml: 1, border: 0, p: 0, cursor: "pointer" }}
+                        sx={{ ml: 1, border: 0, p: 0, cursor: "pointer", background: "none", color: palette.brand, "&:hover": { textDecoration: "underline" } }}
                       >
                         {showOtp ? "Resend OTP?" : showPassword ? "Forgot Password?" : "Signup"}
                       </MDTypography>

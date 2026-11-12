@@ -17,6 +17,7 @@ Coded by www.creative-tim.com
 // @mui material components
 import Button from "@mui/material/Button";
 import { styled, Theme } from "@mui/material/styles";
+import { palette as tokens } from "assets/theme/tokens";
 
 export default styled(Button)(({ theme, ownerState }: { theme?: Theme | any; ownerState: any }) => {
   const { palette, functions, borders, boxShadows } = theme;
@@ -101,23 +102,17 @@ export default styled(Button)(({ theme, ownerState }: { theme?: Theme | any; own
 
   // styles for the button with variant="outlined"
   const outlinedStyles = () => {
-    // background color value
+    // DESIGN.md: neutral outlines (primary/secondary/light/dark) use Ink text with a Stone
+    // (or Ink, for primary) border; coloured outlines (error, success...) keep their colour.
+    const neutral = ["secondary", "light", "dark", "primary"].includes(color);
     const backgroundValue = color === "white" ? rgba(white.main, 0.1) : transparent.main;
+    let colorValue = palette[color] ? palette[color].main : white.main;
+    if (neutral) colorValue = tokens.ink;
+    if (color === "white") colorValue = white.main;
 
-    // color value
-    const colorValue = palette[color] ? palette[color].main : white.main;
-
-    // boxShadow value
-    const boxShadowValue = palette[color]
-      ? boxShadow([0, 0], [0, 3.2], palette[color].main, 0.5)
-      : boxShadow([0, 0], [0, 3.2], white.main, 0.5);
-
-    // border color value
     let borderColorValue = palette[color] ? palette[color].main : rgba(white.main, 0.75);
-
-    if (color === "white") {
-      borderColorValue = rgba(white.main, 0.75);
-    }
+    if (neutral) borderColorValue = color === "primary" ? tokens.ink : tokens.outline;
+    if (color === "white") borderColorValue = rgba(white.main, 0.75);
 
     return {
       background: backgroundValue,
@@ -125,30 +120,24 @@ export default styled(Button)(({ theme, ownerState }: { theme?: Theme | any; own
       border: `${pxToRem(1)} solid ${borderColorValue}`,
 
       "&:hover": {
-        background: transparent.main,
+        background: color === "white" ? rgba(white.main, 0.16) : tokens.surfaceSunken,
         color: colorValue,
-        borderColor: colorValue,
-        opacity: 0.85,
+        borderColor: borderColorValue,
       },
 
       "&:focus:not(:hover)": {
         background: transparent.main,
         color: colorValue,
-        boxShadow: boxShadowValue,
-      },
-
-      "&:active:not(:hover)": {
-        backgroundColor: colorValue,
-        color: white.main,
-        opacity: 0.85,
+        boxShadow: "none",
       },
 
       "&:disabled": {
         color: colorValue,
-        borderColor: colorValue,
+        borderColor: borderColorValue,
       },
     };
   };
+
 
   // styles for the button with variant="gradient"
   const gradientStyles = () => {

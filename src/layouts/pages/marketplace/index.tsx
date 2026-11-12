@@ -42,6 +42,7 @@ import {
   tierOptions,
 } from "./filters/model";
 import { hostOf, toCartItem, toSites } from "./listings";
+import { palette } from "assets/theme/tokens";
 
 // Marketplace: every published offering, one row per website. Filters live in the URL
 // (shareable /marketplace?… links, see filters/model.ts). Picked offerings go into the media
@@ -49,8 +50,8 @@ import { hostOf, toCartItem, toSites } from "./listings";
 // A second tab (/marketplace?tab=bundles) lists PR packages; they go into the same cart.
 
 const PER_PAGE = 25;
-const MUTED = "#7B809A";
-const INK = "#344767";
+const MUTED = palette.textMuted;
+const INK = palette.ink;
 const GREEN = "#2E7D32";
 const TILE_COLOURS = ["#F8303C", "#1A73E8", "#43A047", "#FB8C00", "#8E24AA", "#00897B", "#3949AB", "#6D4C41"];
 const dash = (v: any) => (v === null || v === undefined || v === "" ? "-" : v);

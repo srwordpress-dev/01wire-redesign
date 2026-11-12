@@ -31,10 +31,10 @@ const DisplayCount = ({
     >
       <MDBox>
         <MDBox display="flex" alignItems="center">
-          <MDTypography fontSize="52px" fontWeight="medium" color="primary" fontFamily="Roboto">
+          <MDTypography fontSize="52px" fontWeight="medium" color="primary" fontFamily="Inter">
             {count}
           </MDTypography>
-          <MDTypography ml={1} mt={2} fontSize="18px" fontWeight="medium" fontFamily="Roboto">
+          <MDTypography ml={1} mt={2} fontSize="18px" fontWeight="medium" fontFamily="Inter">
             {title}
           </MDTypography>
         </MDBox>
@@ -42,7 +42,7 @@ const DisplayCount = ({
           textAlign="center"
           fontSize="18px"
           fontWeight="medium"
-          fontFamily="Roboto"
+          fontFamily="Inter"
           mt={4}
         >
           {subTitle}

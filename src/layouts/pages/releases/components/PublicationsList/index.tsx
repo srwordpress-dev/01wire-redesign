@@ -58,7 +58,7 @@ const PublicationsList = ({
       align: "left",
       Cell: ({ value }: { value: any }) => (
         <MDBox>
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }} title={value || ""}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }} title={value || ""}>
             {value && truncateString(value, 15)}
           </MDTypography>
         </MDBox>
@@ -71,7 +71,7 @@ const PublicationsList = ({
       Cell: ({ value }: { value: any }) => {
         return (
           <MDBox>
-            <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }} title={humanize(value)}>
+            <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }} title={humanize(value)}>
               {value && truncateString(humanize(value), 15)}
             </MDTypography>
           </MDBox>
@@ -84,7 +84,7 @@ const PublicationsList = ({
       width: "5%",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {value}
           </MDTypography>
         );
@@ -97,7 +97,7 @@ const PublicationsList = ({
       accessor: "pa",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {value}
           </MDTypography>
         );
@@ -109,7 +109,7 @@ const PublicationsList = ({
       accessor: "da",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {value}
           </MDTypography>
         );
@@ -121,7 +121,7 @@ const PublicationsList = ({
       accessor: "ur",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {value}
           </MDTypography>
         );
@@ -133,7 +133,7 @@ const PublicationsList = ({
       accessor: "dr",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {value}
           </MDTypography>
         );
@@ -145,7 +145,7 @@ const PublicationsList = ({
       accessor: "linkType",
       Cell: ({ value }: { value: any }) => {
         return (
-          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+          <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
             {humanize(value) || "-"}
           </MDTypography>
         );
@@ -159,7 +159,7 @@ const PublicationsList = ({
             width: "10%",
             accessor: "credits",
             Cell: ({ value }: { value: any }) => (
-              <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Roboto" }}>
+              <MDTypography fontWeight="regular" sx={{ fontSize: "14px", fontFamily: "Inter" }}>
                 {value}
               </MDTypography>
             ),

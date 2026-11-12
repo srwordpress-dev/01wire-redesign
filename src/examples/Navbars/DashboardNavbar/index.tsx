@@ -14,6 +14,7 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import colors from "assets/theme/base/colors";
 import borders from "assets/theme/base/borders";
+import { palette, eyebrow } from "assets/theme/tokens";
 // Material Dashboard 2 PRO React TS examples components
 import Breadcrumbs from "examples/Breadcrumbs";
 import NotificationItem from "examples/Items/NotificationItem";
@@ -49,7 +50,7 @@ interface Props {
 }
 
 function DashboardNavbar({ absolute, light, isMini, onsubmit, text }: Props): JSX.Element {
-  const { white, grey } = colors;
+  const { white } = colors;
   const role: any = localStorage.getItem("role");
   const { borderWidth } = borders;
   const [navbarType, setNavbarType] = useState<
@@ -143,7 +144,7 @@ function DashboardNavbar({ absolute, light, isMini, onsubmit, text }: Props): JS
       {role === "ADMIN" && (
         <MDBox px={2} pt={0.5} pb={1} data-testid="admin-menu-label">
           <MDTypography fontSize="0.8rem" color="text">
-            Signed in as <strong style={{ color: "#ee5c61" }}>Admin</strong>
+            Signed in as <strong style={{ color: palette.brand, fontWeight: 500 }}>Admin</strong>
           </MDTypography>
         </MDBox>
       )}
@@ -210,36 +211,40 @@ function DashboardNavbar({ absolute, light, isMini, onsubmit, text }: Props): JS
         {isMini ? null : (
           <MDBox sx={(theme: Theme) => navbarRow(theme, { isMini })}>
             {onsubmit && (
-              <MDBox
-                py={1}
-                px={2}
-                mr={2}
-                sx={{
-                  borderRadius: "8px",
-                  backgroundColor: "#ee5c61",
-                  border: `${borderWidth[1]} solid ${grey[400]}`,
-                  cursor: "pointer",
-                }}
+              <MDButton
+                variant="contained"
+                color="primary"
+                size="small"
                 onClick={onsubmit}
+                endIcon={<AddCircleOutlineRoundedIcon />}
+                sx={{ mr: 1.5 }}
               >
-                <MDTypography fontSize="0.8rem" color="white" sx={{ display: "flex" }}>
-                  {text}
-                  <AddCircleOutlineRoundedIcon sx={{ ml: 0.5, mt: 0.4 }} />
-                </MDTypography>
-              </MDBox>
+                {text}
+              </MDButton>
             )}
             {role === "USER" && (
               <MDBox
-                py={1}
-                px={2}
+                py={0.75}
+                px={1.5}
+                display="flex"
+                alignItems="baseline"
+                gap={1}
                 sx={{
-                  borderRadius: "8px",
+                  borderRadius: "4px",
                   backgroundColor: white.main,
-                  border: `${borderWidth[1]} solid ${grey[400]}`,
+                  border: `${borderWidth[1]} solid ${palette.hairline}`,
                 }}
               >
-                <MDTypography fontWeight="bold" fontSize="1rem" color="primary">
-                  {balance === undefined ? "… Credits" : `${balance} Credits`}
+                <MDTypography component="span" sx={eyebrow}>
+                  Credits
+                </MDTypography>
+                <MDTypography
+                  component="span"
+                  fontWeight="medium"
+                  fontSize="1rem"
+                  sx={{ color: palette.ink, fontVariantNumeric: "tabular-nums" }}
+                >
+                  {balance === undefined ? "…" : balance}
                 </MDTypography>
               </MDBox>
             )}
@@ -254,13 +259,12 @@ function DashboardNavbar({ absolute, light, isMini, onsubmit, text }: Props): JS
                   display="flex"
                   alignItems="center"
                   sx={{
-                    borderRadius: "8px",
-                    backgroundColor: white.main,
-                    border: "1px solid #ee5c61",
+                    borderRadius: "4px",
+                    backgroundColor: palette.brandSoft,
                   }}
                 >
-                  <Icon sx={{ color: "#ee5c61", fontSize: "1.1rem !important" }}>admin_panel_settings</Icon>
-                  <MDTypography fontWeight="bold" fontSize={{ xs: "0.875rem", sm: "1rem" }} sx={{ color: "#ee5c61", ml: 0.75 }}>
+                  <Icon sx={{ color: palette.brand, fontSize: "1.1rem !important" }}>admin_panel_settings</Icon>
+                  <MDTypography fontWeight="medium" fontSize={{ xs: "0.8125rem", sm: "0.875rem" }} sx={{ color: palette.brand, ml: 0.75 }}>
                     Admin
                   </MDTypography>
                 </MDBox>
