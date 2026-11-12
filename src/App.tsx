@@ -17,6 +17,8 @@ import { useMaterialUIController, setMiniSidenav } from "context";
 // Images
 import brandLogo from "assets/images/01wire-logo.png";
 import SignIn from "layouts/authentication/sign-in";
+import DemoBar from "demo/DemoBar";
+import { DEMO_MODE } from "demo/demoMode";
 import PaymentSuccess from "layouts/pages/myCredits/components/PaymentSuccess";
 import PaymentFailed from "layouts/pages/myCredits/components/PaymentFailed";
 import Releases from "layouts/pages/releases";
@@ -91,6 +93,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {DEMO_MODE && <DemoBar />}
       {isSharePath ? (
         <Routes>
           <Route path="/share-estimation/:id" element={<ShareEstimation />} />

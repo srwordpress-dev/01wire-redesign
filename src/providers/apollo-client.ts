@@ -1,6 +1,8 @@
 import { HttpLink, ApolloLink, concat, InMemoryCache, ApolloClient } from "@apollo/client";
 import { jwtDecode } from "jwt-decode";
 import { onError } from "@apollo/client/link/error";
+import { DEMO_MODE } from "demo/demoMode";
+import { createDemoLink } from "demo/mockLink";
 
 const handleTokenExpiry = () => {
   localStorage.removeItem("token");
@@ -51,5 +53,6 @@ const errorLink = onError(({ operation, graphQLErrors }) => {
 });
 export const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: ApolloLink.from([authMiddleware, errorLink, httpLink]),
+  // Demo preview: generated sample data, no network. Never active on the live hosts.
+  link: DEMO_MODE ? createDemoLink() : ApolloLink.from([authMiddleware, errorLink, httpLink]),
 });

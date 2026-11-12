@@ -1,0 +1,2272 @@
+{
+"enums": {
+"ArticleCategoryEnum": [
+"AWARDS",
+"COMPANY_NAME_CHANGE",
+"COMPANY_NAME_UPDATE",
+"CONFERENCE_CALL",
+"CONFERENCES",
+"DIVERSITY",
+"EQUITY",
+"DIVIDEND_EARNING",
+"ENVIRONMENTAL",
+"SOCIAL",
+"GOVERNANCE_EXCHANGE_LISTING",
+"IPO",
+"LAWSUITS",
+"MANAGEMENT_CHANGES",
+"MERGER",
+"ACQUISITION",
+"PARTNERSHIP",
+"PRODUCT_ANNOUNCEMENT",
+"REGULATORY",
+"SHAREHOLDER_MEETING"
+],
+"ArticlePublishTypeEnum": [
+"IMMEDIATE",
+"SCHEDULED"
+],
+"ArticleStatusEnum": [
+"DRAFT",
+"SUBMITTED",
+"REVIEW",
+"AWAITING_APPROVAL",
+"SCHEDULED",
+"REJECTED",
+"PUBLISHED"
+],
+"AuthStatusEnum": [
+"LOGGED_IN",
+"NOT_FOUND",
+"EMAIL_NOT_VERIFIED",
+"EMAIL_VERIFIED"
+],
+"BundleCategoryEnum": [
+"WEB3",
+"YAHOO"
+],
+"BundleTypeEnum": [
+"BASIC",
+"STANDARD",
+"PREMIUM",
+"SILVER",
+"GOLD",
+"DIAMOND"
+],
+"ClientCategoryEnum": [
+"AGRICULTURE",
+"FINANCE",
+"HEALTHCARE",
+"EDUCATION",
+"MANUFACTURING",
+"RETAIL",
+"MARKETING",
+"GAMING",
+"CASINO",
+"AEROSPACE_DEFENCE",
+"AGRICULTURE_AUTOMOTIVE",
+"BANKING_FINANCIAL",
+"BIOTECHNOLOGY",
+"BLOCKCHAIN_CRYPTO",
+"BUSINESS_PROFESSIONAL",
+"CHEMICALS",
+"CLEAN_TECHNOLOGY",
+"FUNDS_TRUST",
+"COMPUTER_INTERNET",
+"CONSUMER_RETAIL",
+"ECLECTRONICS_ENGINEERING",
+"EXCHANGE_FUNDS",
+"FOOD_BEVERAGE",
+"GOVERNMENT",
+"HEALTHCARE_PHARMACEUTICAL",
+"INDUSTRIAL_MANUFACTURING",
+"METALS",
+"OIL_GAS_MINING",
+"PAPER_PACKAGING",
+"PUBLISHING_MEDIA",
+"REAL_ESTATE",
+"SPORTS",
+"LEISURE_ENTERTAINMENT",
+"TELECOMMUNICATION",
+"TRANSPORTATION",
+"TRAVEL",
+"UTILITIES"
+],
+"ClientTypeEnum": [
+"PUBLIC",
+"PRIVATE"
+],
+"CouponCategoryEnum": [
+"PUBLICATION",
+"BUNDLE",
+"WALLET"
+],
+"CouponStatusEnum": [
+"INACTIVE",
+"ACTIVE",
+"CONSUMED"
+],
+"CouponTypeEnum": [
+"PERCENTAGE",
+"FIXED"
+],
+"EventActionEnum": [
+"create",
+"update",
+"upsert",
+"delete",
+"update.stats",
+"reconnect",
+"disconnect",
+"send"
+],
+"EventDomainEnum": [
+"slack",
+"wallet",
+"client",
+"sse",
+"pool",
+"keyword",
+"inbox",
+"chat",
+"msg",
+"sender",
+"supergroup",
+"order",
+"transaction"
+],
+"LanguageEnum": [
+"ACH",
+"AF",
+"AK",
+"AM",
+"AR",
+"AZ",
+"BAN",
+"BE",
+"BEM",
+"BG",
+"BN",
+"BR",
+"BS",
+"CA",
+"CEB",
+"CHR",
+"CKB",
+"CO",
+"CRS",
+"CS",
+"CY",
+"DA",
+"DE",
+"EE",
+"EL",
+"EN",
+"EO",
+"ES",
+"ES-419",
+"ET",
+"EU",
+"FA",
+"FI",
+"FO",
+"FR",
+"FY",
+"GA",
+"GAA",
+"GD",
+"GL",
+"GN",
+"GU",
+"HA",
+"HAW",
+"HI",
+"HR",
+"HT",
+"HU",
+"HY",
+"IA",
+"ID",
+"IG",
+"IS",
+"IT",
+"IW",
+"JA",
+"JW",
+"KA",
+"KG",
+"KK",
+"KM",
+"KN",
+"KO",
+"KRI",
+"KY",
+"LA",
+"LG",
+"LN",
+"LO",
+"LOZ",
+"LT",
+"LUA",
+"LV",
+"MFE",
+"MG",
+"MI",
+"MK",
+"ML",
+"MN",
+"MO",
+"MR",
+"MS",
+"MT",
+"MY",
+"NE",
+"NL",
+"NN",
+"NO",
+"NSO",
+"NY",
+"NYN",
+"OC",
+"OM",
+"OR",
+"PA",
+"PCM",
+"PL",
+"PS",
+"PT",
+"PT-BR",
+"PT-PT",
+"QU",
+"RM",
+"RN",
+"RO",
+"RU",
+"RW",
+"SD",
+"SI",
+"SK",
+"SL",
+"SN",
+"SO",
+"SQ",
+"SR",
+"SR-LATN",
+"SR-ME",
+"ST",
+"SU",
+"SV",
+"SW",
+"TA",
+"TE",
+"TG",
+"TH",
+"TI",
+"TK",
+"TL",
+"TLH",
+"TN",
+"TO",
+"TR",
+"TT",
+"TUM",
+"TW",
+"UG",
+"UK",
+"UR",
+"UZ",
+"VI",
+"WO",
+"XH",
+"YI",
+"YO",
+"ZH-CN",
+"ZH-TW",
+"ZU"
+],
+"OrderStatusEnum": [
+"PENDING",
+"REJECTED",
+"PUBLISHED"
+],
+"OtpStatusEnum": [
+"PENDING",
+"VERIFIED",
+"EXPIRED",
+"BLOCKED"
+],
+"OtpTypeEnum": [
+"EMAIL"
+],
+"PaymentOrderStatusEnum": [
+"PENDING",
+"PAID",
+"CANCELLED"
+],
+"PublicationBulkActionEnum": [
+"PUBLISH",
+"SUPPRESS",
+"DELETE",
+"SET_MARKUP"
+],
+"PublicationCategoryEnum": [
+"GENERAL",
+"AWARDS",
+"ORGANIC",
+"PRESS_RELEASE",
+"SPONSORED",
+"GUEST_POST",
+"LISTICLE",
+"REVIEW",
+"INTERVIEW",
+"CASINO",
+"GAMBLING",
+"MINING"
+],
+"PublicationLinkTypeEnum": [
+"DO_FOLLOW",
+"NO_FOLLOW"
+],
+"PublicationTimelineEnum": [
+"D1",
+"D2",
+"D3",
+"D4",
+"D5",
+"W1",
+"W2",
+"W3",
+"W4",
+"W5"
+],
+"RoleEnum": [
+"DUMMY"
+],
+"TransactionKindEnum": [
+"WALLET",
+"CREDITS_100",
+"CREDITS_500",
+"CREDITS_1000",
+"CREDITS_5000",
+"ADMIN_UPDATE"
+],
+"TransactionStatusEnum": [
+"PENDING",
+"SUCCESS",
+"FAILED"
+],
+"TransactionTypeEnum": [
+"CREDIT",
+"DEBIT"
+],
+"UserTypeEnum": [
+"USER",
+"ADMIN"
+],
+"VisibilityEnum": [
+"SUPPRESSED",
+"PUBLISHED",
+"PRIVATE"
+]
+},
+"queries": {
+"adminOverview": [
+"AdminOverviewType",
+false
+],
+"adminPrOrder": [
+"AdminPrRowType",
+false
+],
+"adminPrOrders": [
+"AdminPrPageType",
+false
+],
+"articlePayments": [
+"PaymentRecordType",
+true
+],
+"filterArticlesPaginated": [
+"ArticlePaginationType",
+false
+],
+"filterBundlesPaginated": [
+"BundlePaginationType",
+false
+],
+"filterClientsPaginated": [
+"ClientPaginationType",
+false
+],
+"filterCouponsPaginated": [
+"CouponPaginationType",
+false
+],
+"filterEstimatesPaginated": [
+"EstimatePaginationType",
+false
+],
+"filterOrdersPaginated": [
+"OrderPaginationType",
+false
+],
+"filterPublicationsPaginated": [
+"PublicationPaginationType",
+false
+],
+"filterTransactionsPaginated": [
+"TransactionFilterType",
+false
+],
+"filterUsersPaginated": [
+"UserPaginationType",
+false
+],
+"getArticleById": [
+"ArticleType",
+false
+],
+"getArticleStats": [
+"ArticleStatsType",
+true
+],
+"getAuthStatus": [
+"AuthStatusType",
+false
+],
+"getBundleById": [
+"BundleType",
+false
+],
+"getClientById": [
+"ClientType",
+false
+],
+"getEstimateById": [
+"EstimateType",
+false
+],
+"getMe": [
+"UserType",
+false
+],
+"getOrderById": [
+"OrderType",
+false
+],
+"getPublicationById": [
+"PublicationType",
+false
+],
+"getPublicationSettings": [
+"PublicationSettingsType",
+false
+],
+"getUserWallet": [
+"WalletType",
+false
+],
+"marketplaceListings": [
+"PublicationType",
+true
+],
+"offlineOrders": [
+"OfflineOrdersPageType",
+false
+],
+"paymentMethods": [
+"PaymentMethodsType",
+false
+],
+"paymentsNeedingReview": [
+"PaymentRecordType",
+true
+],
+"razorpayPaymentStatus": [
+"PaymentResultType",
+false
+]
+},
+"types": {
+"AdminChangeRequestType": {
+"at": [
+"DateTime",
+false
+],
+"changes": [
+"String",
+true
+],
+"note": [
+"String",
+false
+]
+},
+"AdminOfflineMonthType": {
+"count": [
+"Int",
+false
+],
+"month": [
+"String",
+false
+],
+"owedCount": [
+"Int",
+false
+],
+"owedToVendors": [
+"Float",
+false
+],
+"paid": [
+"Float",
+false
+]
+},
+"AdminOverviewType": {
+"counts": [
+"AdminPrCountsType",
+false
+],
+"lateSites": [
+"Int",
+false
+],
+"offlineThisMonth": [
+"AdminOfflineMonthType",
+false
+],
+"oldestToReviewAt": [
+"DateTime",
+false
+],
+"paymentsToCheck": [
+"Int",
+false
+],
+"pendingSites": [
+"Int",
+false
+],
+"week": [
+"AdminWeekType",
+false
+]
+},
+"AdminPrCountsType": {
+"all": [
+"Int",
+false
+],
+"drafts": [
+"Int",
+false
+],
+"inProgress": [
+"Int",
+false
+],
+"published": [
+"Int",
+false
+],
+"rejected": [
+"Int",
+false
+],
+"toReview": [
+"Int",
+false
+],
+"waitingOnCustomer": [
+"Int",
+false
+]
+},
+"AdminPrItemType": {
+"credits": [
+"Int",
+false
+],
+"name": [
+"String",
+false
+],
+"notes": [
+"String",
+false
+],
+"orderId": [
+"ID",
+false
+],
+"overdue": [
+"Boolean",
+false
+],
+"publishBy": [
+"DateTime",
+false
+],
+"refundedCredits": [
+"Int",
+false
+],
+"status": [
+"String",
+false
+],
+"type": [
+"String",
+false
+],
+"url": [
+"String",
+false
+]
+},
+"AdminPrPageType": {
+"counts": [
+"AdminPrCountsType",
+false
+],
+"data": [
+"AdminPrRowType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"AdminPrPaymentType": {
+"amount": [
+"Int",
+false
+],
+"credits": [
+"Int",
+false
+],
+"gatewayRef": [
+"String",
+false
+],
+"issue": [
+"String",
+false
+],
+"method": [
+"String",
+false
+],
+"paidAt": [
+"DateTime",
+false
+],
+"refundedCredits": [
+"Int",
+false
+],
+"test": [
+"Boolean",
+false
+]
+},
+"AdminPrRowType": {
+"articleId": [
+"ID",
+false
+],
+"changeRequests": [
+"AdminChangeRequestType",
+true
+],
+"clientName": [
+"String",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"customerEmail": [
+"String",
+false
+],
+"customerId": [
+"ID",
+false
+],
+"customerName": [
+"String",
+false
+],
+"items": [
+"AdminPrItemType",
+true
+],
+"liveCount": [
+"Int",
+false
+],
+"nextStep": [
+"String",
+false
+],
+"notes": [
+"String",
+false
+],
+"overdueCount": [
+"Int",
+false
+],
+"payment": [
+"AdminPrPaymentType",
+false
+],
+"pendingCount": [
+"Int",
+false
+],
+"prId": [
+"Int",
+false
+],
+"rejectedCount": [
+"Int",
+false
+],
+"status": [
+"String",
+false
+],
+"title": [
+"String",
+false
+],
+"totalCount": [
+"Int",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+]
+},
+"AdminWeekType": {
+"creditsRefunded": [
+"Int",
+false
+],
+"creditsSpent": [
+"Int",
+false
+],
+"gatewayInr": [
+"Float",
+false
+],
+"gatewayInrTest": [
+"Float",
+false
+],
+"gatewayPayments": [
+"Int",
+false
+],
+"gatewayPaymentsTest": [
+"Int",
+false
+],
+"newCustomers": [
+"Int",
+false
+],
+"newPaidPrs": [
+"Int",
+false
+],
+"razorpayInr": [
+"Float",
+false
+],
+"shopifyInr": [
+"Float",
+false
+],
+"sitesPublished": [
+"Int",
+false
+]
+},
+"ArticleMediaContactType": {
+"address": [
+"String",
+false
+],
+"city": [
+"String",
+false
+],
+"country": [
+"String",
+false
+],
+"email": [
+"String",
+false
+],
+"facebook": [
+"String",
+false
+],
+"instagram": [
+"String",
+false
+],
+"linkedIn": [
+"String",
+false
+],
+"name": [
+"String",
+false
+],
+"others": [
+"String",
+false
+],
+"phone": [
+"String",
+false
+],
+"state": [
+"String",
+false
+],
+"twitter": [
+"String",
+false
+],
+"website": [
+"String",
+false
+],
+"youtube": [
+"String",
+false
+]
+},
+"ArticlePaginationType": {
+"data": [
+"ArticleType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"ArticleStatsType": {
+"count": [
+"Int",
+false
+],
+"status": [
+"ArticleStatusEnum",
+false
+]
+},
+"ArticleType": {
+"articleImages": [
+"String",
+true
+],
+"bundleIds": [
+"String",
+true
+],
+"bundleInfo": [
+"BundleType",
+true
+],
+"category": [
+"ArticleCategoryEnum",
+false
+],
+"changeRequests": [
+"ChangeRequestType",
+true
+],
+"changesRequested": [
+"String",
+true
+],
+"clientId": [
+"ID",
+false
+],
+"clientInfo": [
+"ClientType",
+false
+],
+"content": [
+"String",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"featureImage": [
+"String",
+false
+],
+"featureImageDesc": [
+"String",
+false
+],
+"id": [
+"ID",
+false
+],
+"instructions": [
+"String",
+false
+],
+"language": [
+"LanguageEnum",
+false
+],
+"mediaContact": [
+"ArticleMediaContactType",
+false
+],
+"metaDescription": [
+"String",
+false
+],
+"metaTitle": [
+"String",
+false
+],
+"notes": [
+"String",
+false
+],
+"ordersInfo": [
+"OrderType",
+true
+],
+"prId": [
+"Int",
+false
+],
+"publicationIds": [
+"String",
+true
+],
+"publicationInfo": [
+"PublicationType",
+true
+],
+"publishAt": [
+"DateTime",
+false
+],
+"publishType": [
+"ArticlePublishTypeEnum",
+false
+],
+"status": [
+"ArticleStatusEnum",
+false
+],
+"summary": [
+"String",
+false
+],
+"timezone": [
+"String",
+false
+],
+"title": [
+"String",
+false
+],
+"totalCredits": [
+"Int",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"user": [
+"UserType",
+false
+],
+"userId": [
+"ID",
+false
+]
+},
+"AuthStatusType": {
+"expireAt": [
+"DateTime",
+false
+],
+"status": [
+"AuthStatusEnum",
+false
+],
+"token": [
+"String",
+false
+],
+"type": [
+"UserTypeEnum",
+false
+]
+},
+"BundleMediaType": {
+"image": [
+"String",
+false
+],
+"name": [
+"String",
+false
+]
+},
+"BundlePaginationType": {
+"data": [
+"BundleType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"BundleType": {
+"backlinks": [
+"String",
+false
+],
+"category": [
+"BundleCategoryEnum",
+false
+],
+"contentRule": [
+"String",
+false
+],
+"coverage": [
+"String",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"description": [
+"String",
+false
+],
+"disclaimer": [
+"String",
+false
+],
+"featured": [
+"Boolean",
+false
+],
+"id": [
+"ID",
+false
+],
+"image": [
+"String",
+false
+],
+"importBatch": [
+"String",
+false
+],
+"internalNotes": [
+"String",
+false
+],
+"language": [
+"String",
+false
+],
+"markupPercent": [
+"Int",
+false
+],
+"media": [
+"BundleMediaType",
+true
+],
+"name": [
+"String",
+false
+],
+"notes": [
+"String",
+true
+],
+"packageType": [
+"String",
+false
+],
+"price": [
+"Int",
+false
+],
+"publicationIds": [
+"ID",
+true
+],
+"publicationInfo": [
+"PublicationType",
+true
+],
+"sampleUrls": [
+"String",
+true
+],
+"source": [
+"String",
+false
+],
+"tat": [
+"String",
+false
+],
+"tier": [
+"String",
+false
+],
+"traffic": [
+"String",
+false
+],
+"type": [
+"BundleTypeEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"vendor": [
+"String",
+false
+],
+"vendorPackageName": [
+"String",
+false
+],
+"vendorPriceInr": [
+"Int",
+false
+],
+"visibility": [
+"VisibilityEnum",
+false
+]
+},
+"ChangeRequestType": {
+"at": [
+"DateTime",
+false
+],
+"changes": [
+"String",
+true
+],
+"note": [
+"String",
+false
+]
+},
+"ClientPaginationType": {
+"data": [
+"ClientType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"ClientSocialType": {
+"facebook": [
+"String",
+false
+],
+"instagram": [
+"String",
+false
+],
+"linkedIn": [
+"String",
+false
+],
+"others": [
+"String",
+false
+],
+"twitter": [
+"String",
+false
+],
+"youtube": [
+"String",
+false
+]
+},
+"ClientType": {
+"category": [
+"ClientCategoryEnum",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"email": [
+"String",
+false
+],
+"id": [
+"ID",
+false
+],
+"logo": [
+"String",
+false
+],
+"notes": [
+"String",
+false
+],
+"social": [
+"ClientSocialType",
+false
+],
+"ticker": [
+"String",
+false
+],
+"title": [
+"String",
+false
+],
+"type": [
+"ClientTypeEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"userId": [
+"ID",
+false
+],
+"website": [
+"String",
+false
+]
+},
+"CouponPaginationType": {
+"data": [
+"CouponType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"CouponType": {
+"category": [
+"CouponCategoryEnum",
+false
+],
+"code": [
+"String",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"expireAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"limit": [
+"Int",
+false
+],
+"status": [
+"CouponStatusEnum",
+false
+],
+"type": [
+"CouponTypeEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"used": [
+"Int",
+false
+],
+"userId": [
+"ID",
+false
+],
+"value": [
+"Int",
+false
+]
+},
+"EstimatePaginationType": {
+"data": [
+"EstimateType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"EstimateType": {
+"bundleIds": [
+"ID",
+true
+],
+"bundleInfo": [
+"BundleType",
+true
+],
+"createdAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"publicationIds": [
+"ID",
+true
+],
+"publicationInfo": [
+"PublicationType",
+true
+],
+"title": [
+"String",
+false
+],
+"totalCredits": [
+"Int",
+false
+],
+"traffic": [
+"Int",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"userId": [
+"ID",
+false
+]
+},
+"OfflineImportIssueType": {
+"reason": [
+"String",
+false
+],
+"row": [
+"Int",
+false
+]
+},
+"OfflineImportMonthType": {
+"count": [
+"Int",
+false
+],
+"month": [
+"String",
+false
+],
+"paid": [
+"Float",
+false
+],
+"vendorCost": [
+"Float",
+false
+]
+},
+"OfflineImportResultType": {
+"alreadyImported": [
+"Int",
+false
+],
+"dryRun": [
+"Boolean",
+false
+],
+"errors": [
+"OfflineImportIssueType",
+true
+],
+"importBatch": [
+"String",
+false
+],
+"months": [
+"OfflineImportMonthType",
+true
+],
+"paid": [
+"Float",
+false
+],
+"rowsRead": [
+"Int",
+false
+],
+"toAdd": [
+"Int",
+false
+],
+"vendorCost": [
+"Float",
+false
+],
+"warnings": [
+"OfflineImportIssueType",
+true
+]
+},
+"OfflineOrderType": {
+"amountPaid": [
+"Float",
+false
+],
+"articleLink": [
+"String",
+false
+],
+"articleNote": [
+"String",
+false
+],
+"customerGroup": [
+"String",
+false
+],
+"customerPaymentStatus": [
+"String",
+false
+],
+"deliveredAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"importBatch": [
+"String",
+false
+],
+"isTest": [
+"Boolean",
+false
+],
+"item": [
+"String",
+false
+],
+"liveLink": [
+"String",
+false
+],
+"liveLinks": [
+"String",
+true
+],
+"liveNote": [
+"String",
+false
+],
+"margin": [
+"Float",
+false
+],
+"matchedPublicationId": [
+"String",
+false
+],
+"notes": [
+"String",
+false
+],
+"orderDate": [
+"DateTime",
+false
+],
+"orderType": [
+"String",
+false
+],
+"sourceRow": [
+"Int",
+false
+],
+"status": [
+"String",
+false
+],
+"vendor": [
+"String",
+false
+],
+"vendorCost": [
+"Float",
+false
+],
+"vendorOrderStatus": [
+"String",
+false
+],
+"vendorPaymentNote": [
+"String",
+false
+],
+"vendorPaymentStatus": [
+"String",
+false
+]
+},
+"OfflineOrdersPageType": {
+"data": [
+"OfflineOrderType",
+true
+],
+"groups": [
+"String",
+true
+],
+"totals": [
+"OfflineTotalsType",
+false
+],
+"vendors": [
+"String",
+true
+]
+},
+"OfflineTotalsType": {
+"count": [
+"Int",
+false
+],
+"delivered": [
+"Int",
+false
+],
+"margin": [
+"Float",
+false
+],
+"notDelivered": [
+"Int",
+false
+],
+"owedCount": [
+"Int",
+false
+],
+"owedToVendors": [
+"Float",
+false
+],
+"paid": [
+"Float",
+false
+],
+"vendorCost": [
+"Float",
+false
+]
+},
+"OrderPaginationType": {
+"data": [
+"OrderType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"OrderType": {
+"articleId": [
+"ID",
+false
+],
+"articleInfo": [
+"ArticleType",
+false
+],
+"bundleId": [
+"ID",
+false
+],
+"bundleInfo": [
+"BundleType",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"notes": [
+"String",
+false
+],
+"prId": [
+"Int",
+false
+],
+"publicationId": [
+"ID",
+false
+],
+"publicationInfo": [
+"PublicationType",
+false
+],
+"publishAt": [
+"DateTime",
+false
+],
+"publishBy": [
+"DateTime",
+false
+],
+"status": [
+"OrderStatusEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"url": [
+"String",
+false
+],
+"user": [
+"UserType",
+false
+],
+"userId": [
+"ID",
+false
+]
+},
+"OtpVerifyType": {
+"expireAt": [
+"DateTime",
+false
+],
+"token": [
+"String",
+false
+],
+"type": [
+"UserTypeEnum",
+false
+]
+},
+"PaginationType": {
+"currentPage": [
+"Int",
+false
+],
+"hasNextPage": [
+"Boolean",
+false
+],
+"hasPreviousPage": [
+"Boolean",
+false
+],
+"itemCount": [
+"Int",
+false
+],
+"pageCount": [
+"Int",
+false
+],
+"perPage": [
+"Int",
+false
+]
+},
+"PaymentMethodsType": {
+"inrPerCredit": [
+"Float",
+false
+],
+"is": [
+"Boolean",
+false
+],
+"razorpay": [
+"Boolean",
+false
+],
+"shopify": [
+"Boolean",
+false
+]
+},
+"PaymentRecordType": {
+"amount": [
+"Int",
+false
+],
+"articleId": [
+"String",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"credits": [
+"Int",
+false
+],
+"currency": [
+"String",
+false
+],
+"gatewayOrderId": [
+"String",
+false
+],
+"gatewayPaymentId": [
+"String",
+false
+],
+"gatewayRef": [
+"String",
+false
+],
+"id": [
+"ID",
+false
+],
+"issue": [
+"String",
+false
+],
+"issueAt": [
+"DateTime",
+false
+],
+"paidAt": [
+"DateTime",
+false
+],
+"prId": [
+"Int",
+false
+],
+"provider": [
+"String",
+false
+],
+"rate": [
+"Float",
+false
+],
+"refundedAmount": [
+"Int",
+false
+],
+"reversedCredits": [
+"Int",
+false
+],
+"status": [
+"String",
+false
+],
+"submitError": [
+"String",
+false
+],
+"test": [
+"Boolean",
+false
+],
+"userId": [
+"String",
+false
+]
+},
+"PaymentResultType": {
+"message": [
+"String",
+false
+],
+"status": [
+"String",
+false
+],
+"submitted": [
+"Boolean",
+false
+]
+},
+"PublicationBulkResultType": {
+"changed": [
+"Int",
+false
+],
+"matched": [
+"Int",
+false
+]
+},
+"PublicationImportIssueType": {
+"domain": [
+"String",
+false
+],
+"reason": [
+"String",
+false
+],
+"row": [
+"Int",
+false
+]
+},
+"PublicationImportResultType": {
+"added": [
+"Int",
+false
+],
+"dryRun": [
+"Boolean",
+false
+],
+"skipped": [
+"PublicationImportIssueType",
+true
+],
+"unchanged": [
+"Int",
+false
+],
+"updated": [
+"Int",
+false
+]
+},
+"PublicationPaginationType": {
+"data": [
+"PublicationType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"PublicationSettingsType": {
+"gstPercent": [
+"Float",
+false
+],
+"markupPercent": [
+"Float",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"usdInrRate": [
+"Float",
+false
+]
+},
+"PublicationStatsType": {
+"da": [
+"Int",
+false
+],
+"dr": [
+"Int",
+false
+],
+"pa": [
+"Int",
+false
+],
+"traffic": [
+"Int",
+false
+],
+"ur": [
+"Int",
+false
+]
+},
+"PublicationType": {
+"backlinks": [
+"String",
+false
+],
+"categories": [
+"PublicationCategoryEnum",
+true
+],
+"createdAt": [
+"DateTime",
+false
+],
+"description": [
+"String",
+false
+],
+"disclaimer": [
+"String",
+false
+],
+"domain": [
+"String",
+false
+],
+"gstPercent": [
+"Float",
+false
+],
+"id": [
+"ID",
+false
+],
+"image": [
+"String",
+false
+],
+"importBatch": [
+"String",
+false
+],
+"indexed": [
+"String",
+false
+],
+"internalNotes": [
+"String",
+false
+],
+"language": [
+"String",
+false
+],
+"linkType": [
+"PublicationLinkTypeEnum",
+false
+],
+"markupPercent": [
+"Float",
+false
+],
+"niche": [
+"String",
+false
+],
+"price": [
+"Int",
+false
+],
+"sampleUrl": [
+"String",
+false
+],
+"section": [
+"String",
+false
+],
+"sourceVendor": [
+"String",
+false
+],
+"stats": [
+"PublicationStatsType",
+false
+],
+"tat": [
+"String",
+false
+],
+"tier": [
+"String",
+false
+],
+"timeline": [
+"PublicationTimelineEnum",
+false
+],
+"title": [
+"String",
+false
+],
+"topics": [
+"String",
+true
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"url": [
+"String",
+false
+],
+"validity": [
+"String",
+false
+],
+"variantLabel": [
+"String",
+false
+],
+"vendorPriceInr": [
+"Float",
+false
+],
+"visibility": [
+"VisibilityEnum",
+false
+],
+"wordsAllowed": [
+"String",
+false
+]
+},
+"RazorpayOrderType": {
+"amount": [
+"Int",
+false
+],
+"credits": [
+"Int",
+false
+],
+"currency": [
+"String",
+false
+],
+"keyId": [
+"String",
+false
+],
+"orderId": [
+"String",
+false
+],
+"prId": [
+"Int",
+false
+]
+},
+"ShopifyCheckoutType": {
+"amount": [
+"Int",
+false
+],
+"checkoutUrl": [
+"String",
+false
+],
+"credits": [
+"Int",
+false
+],
+"currency": [
+"String",
+false
+],
+"prId": [
+"Int",
+false
+]
+},
+"TransactionFilterType": {
+"data": [
+"TransactionType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"TransactionType": {
+"amount": [
+"Int",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"kind": [
+"TransactionKindEnum",
+false
+],
+"notes": [
+"String",
+false
+],
+"performedBy": [
+"ID",
+false
+],
+"status": [
+"TransactionStatusEnum",
+false
+],
+"type": [
+"TransactionTypeEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"userId": [
+"ID",
+false
+]
+},
+"UserPaginationType": {
+"data": [
+"UserType",
+true
+],
+"paginationInfo": [
+"PaginationType",
+false
+]
+},
+"UserType": {
+"createdAt": [
+"DateTime",
+false
+],
+"email": [
+"String",
+false
+],
+"fullName": [
+"String",
+false
+],
+"id": [
+"ID",
+false
+],
+"isEmailVerified": [
+"Boolean",
+false
+],
+"isKycVerified": [
+"Boolean",
+false
+],
+"phoneNumber": [
+"String",
+false
+],
+"type": [
+"UserTypeEnum",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"walletInfo": [
+"WalletType",
+false
+]
+},
+"WalletType": {
+"balance": [
+"Int",
+false
+],
+"createdAt": [
+"DateTime",
+false
+],
+"id": [
+"ID",
+false
+],
+"updatedAt": [
+"DateTime",
+false
+],
+"userId": [
+"ID",
+false
+]
+}
+}
+}

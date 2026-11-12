@@ -20,6 +20,14 @@ Visual redesign of the 01Wire dashboard (client + admin), driven by [`DESIGN.md`
 
 Commit 1 after the initial commit is the untouched baseline; everything after it is the redesign, so the diff between the baseline commit and `main` shows exactly what changed.
 
+## Demo mode (live review without a backend)
+
+This repo runs in **demo mode**: the app uses generated sample data (clients, press releases, outlets, orders) shaped by the real backend schema, and never contacts any server. A bar at the bottom switches between **Client view**, **Admin view** and the **Sign-in page**. Saves show "Demo mode: changes aren't saved"; uploads are blocked.
+
+To share it live: import this repo into Vercel as a new project (framework: Create React App, no environment variables needed) and send the project's `.vercel.app` link.
+
+Demo mode never switches on at the live 01Wire addresses (`01wire-frontend.vercel.app`, `dashboard.01wire.com`, `app.01wire.com`). The code is in `src/demo/`.
+
 ## Run locally
 
 ```bash
